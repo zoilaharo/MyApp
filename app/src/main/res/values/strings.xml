@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Owls above Trillium</string>
+    <string name="hello">Hello !</string>
+    <string name="Image_Desc">Owl</string>
+    <string name="MyName_Date">Pena, Zoila Haro 4/10/2018</string>
+    <string name="Morning">morning</string>
+    <string name ="Night">Night Owl</string>
+    <string name="greetButton">Greet</string>
+</resources>

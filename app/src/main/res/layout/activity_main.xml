@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/MyName_Date"
+        android:layout_marginTop ="@dimen/textview_top"
+        android:layout_marginBottom="@dimen/textview_bottom"
+        android:layout_marginStart="@dimen/textview_left"
+        android:layout_marginEnd="@dimen/textview_right"
+        />
+
+    <EditText
+        android:id="@+id/greetEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:inputType="textCapSentences"
+        android:layout_marginTop ="@dimen/textview_top1"
+        android:layout_marginBottom="@dimen/textview_top6"
+        android:layout_marginStart="@dimen/textview_left"
+        android:layout_marginEnd="@dimen/textview_right1"/>
+
+    <Button
+        android:id="@+id/greetButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/textview_top5"
+        android:onClick="didTapGreetButton"
+        android:text="@string/greetButton"
+        />
+        />
+    <TextView
+        android:id="@+id/messageTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/hello"
+        android:layout_marginTop ="@dimen/textview_top1"
+        android:layout_marginBottom="@dimen/textview_top3"
+        android:layout_marginStart="@dimen/textview_left"
+        android:layout_marginEnd="@dimen/textview_right1"
+        />
+
+    <ImageView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:contentDescription="@string/Image_Desc"
+        android:src="@drawable/owl"
+        android:layout_marginTop ="@dimen/textview_top4"
+        android:layout_marginBottom="@dimen/textview_top4"
+        android:layout_marginStart="@dimen/textview_left"
+        android:layout_marginEnd="@dimen/textview_right1"
+        />
+
+
+
+
+</RelativeLayout>
