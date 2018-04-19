@@ -1,17 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <dimen name="textview_top">10dp</dimen>
-    <dimen name="textview_bottom">10dp</dimen>
-    <dimen name="textview_right">10dp</dimen>
-    <dimen name="textview_left">10dp</dimen>
-    <dimen name="textview_top1">30dp</dimen>
-    <dimen name="textview_bottom1">30dp</dimen>
-    <dimen name="textview_right1">30dp</dimen>
-    <dimen name="textview_left1">30dp</dimen>
-    <dimen name="textview_top2">100dp</dimen>
-    <dimen name="textview_top3">80dp</dimen>
-    <dimen name="textview_top4">150dp</dimen>
-    <dimen name="textview_top5">68dp</dimen>
-    <dimen name="textview_top6">60dp</dimen>
+    <dimen name="textview_top5">5dp</dimen>
+    <dimen name="textview_top10">10dp</dimen>
+    <dimen name="textview_top20">20dp</dimen>
+    <dimen name="textview_top30">30dp</dimen>
+    <dimen name="textview_top40">40dp</dimen>
+    <dimen name="textview_top50">50dp</dimen>
+    <dimen name="textview_top60">60dp</dimen>
+    <dimen name="textview_top70">70dp</dimen>
 
 </resources>

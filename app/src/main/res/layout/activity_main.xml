@@ -1,68 +1,99 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    android:layout_height="match_parent">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/MyName_Date"
-        android:layout_marginTop ="@dimen/textview_top"
-        android:layout_marginBottom="@dimen/textview_bottom"
-        android:layout_marginStart="@dimen/textview_left"
-        android:layout_marginEnd="@dimen/textview_right"
-        />
-
-    <EditText
-        android:id="@+id/greetEditText"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center"
-        android:inputType="textCapSentences"
-        android:layout_marginTop ="@dimen/textview_top1"
-        android:layout_marginBottom="@dimen/textview_top6"
-        android:layout_marginStart="@dimen/textview_left"
-        android:layout_marginEnd="@dimen/textview_right1"/>
+        android:orientation="vertical"
+        android:padding="20dp">
 
-    <Button
-        android:id="@+id/greetButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="@dimen/textview_top5"
-        android:onClick="didTapGreetButton"
-        android:text="@string/greetButton"
-        />
-        />
-    <TextView
-        android:id="@+id/messageTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/hello"
-        android:layout_marginTop ="@dimen/textview_top1"
-        android:layout_marginBottom="@dimen/textview_top3"
-        android:layout_marginStart="@dimen/textview_left"
-        android:layout_marginEnd="@dimen/textview_right1"
-        />
+        <TextView
+            android:id="@+id/myinfo_edittext"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/textview_top5"
+            android:inputType="text"
+            android:hint="@string/myinfo_edittext"/>
 
-    <ImageView
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:contentDescription="@string/Image_Desc"
-        android:src="@drawable/owl"
-        android:layout_marginTop ="@dimen/textview_top4"
-        android:layout_marginBottom="@dimen/textview_top4"
-        android:layout_marginStart="@dimen/textview_left"
-        android:layout_marginEnd="@dimen/textview_right1"
-        />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/textview_top50"
+            android:gravity="center"
+            android:textColor="#FFFFFF"
+            android:background="#3F51B5"
+            android:text="@string/header"/>
+
+        <EditText
+            android:id="@+id/name_edittext"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/textview_top20"
+            android:inputType="text"
+            android:hint="@string/name"/>
+
+        <EditText
+            android:id="@+id/email_edittext"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/textview_top20"
+            android:inputType="textEmailAddress"
+            android:hint="@string/email"/>
+
+        <EditText
+            android:id="@+id/username_edittext"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/textview_top20"
+            android:inputType="text"
+            android:hint="@string/username"/>
 
 
+        <EditText
+            android:id="@+id/birthday_edittext"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="date"
+            android:layout_marginTop="@dimen/textview_top20"/>
+
+        <Button
+            android:id="@+id/datePickerDialogButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/selectdate"
+            android:layout_weight="1"/>
 
 
-</RelativeLayout>
+        <TextView
+            android:id="@+id/age_textview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:focusable="false"
+            android:layout_marginTop="@dimen/textview_top20"
+            android:inputType="text"
+            android:hint="@string/age"/>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="@dimen/textview_top20"
+            android:gravity="center_vertical">
+
+        </LinearLayout>
+
+            <Button
+            android:id="@+id/signup_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="@dimen/textview_top10"
+            android:paddingBottom="@dimen/textview_top10"
+            android:layout_marginTop="@dimen/textview_top20"
+            android:gravity="center"
+            android:text="@string/signup" android:onClick="onClick"/>
+
+        </LinearLayout>
+
+</ScrollView>

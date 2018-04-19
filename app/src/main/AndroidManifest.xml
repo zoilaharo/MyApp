@@ -14,8 +14,17 @@
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
+                android:name="@string/main"
+
             </intent-filter>
         </activity>
+        <activity android:name=".Confirmation"
+            android:parentActivityName=".MainActivity">
+            android:label="@string/confirmation"
+            android:parentActivityName="com.example.zoilaharo.myapp.MainActivity" >
+        </activity>
+
+
     </application>
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>

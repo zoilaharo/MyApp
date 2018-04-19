@@ -1,9 +1,27 @@
 <resources>
-    <string name="app_name">Owls above Trillium</string>
-    <string name="hello">Hello !</string>
-    <string name="Image_Desc">Owl</string>
-    <string name="MyName_Date">Pena, Zoila Haro 4/10/2018</string>
-    <string name="Morning">morning</string>
-    <string name ="Night">Night Owl</string>
-    <string name="greetButton">Greet</string>
+    <string name="app_name">Fiddleheads Fern</string>
+    <string name="myinfo_edittext">Pena, Zoila Haro 4/19/2018</string>
+    <string name="header">Please enter your information.</string>
+    <string name="feedbacktitle">Enter your name</string>
+    <string name="feedbackemail">Enter your email</string>
+    <string name="feedbackusername">Enter your user name</string>
+    <string name="feedbackage">Enter your age</string>
+    <string name="feedbackdob">Enter your date of birth</string>
+    <string name="name">Name</string>
+    <string name="username">User Name</string>
+    <string name="age">Age</string>
+    <string name="email">Email</string>
+    <string name="dob">DOB</string>
+    <string name="signup">Sign-up</string>
+   <string name="register_form_text">Sign-up</string>
+    <string name="no_field_can_be_empty">No field can be empty</string>
+    <string name="here_is_values">Here is values: %1$s</string>
+    <string name="getdate">Get Date</string>
+    <string name="selectdate">Select your date of birth</string>
+    <string name="main">Main</string>
+    <string name="confirmation">Confirmation Page</string>
+    <string name="confmessage">Welcome </string>
+    <string name="gobackbutton">Go Back</string>
+
+
 </resources>

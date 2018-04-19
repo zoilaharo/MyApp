@@ -6,15 +6,8 @@ import static android.support.test.espresso.action.ViewActions.click;
 import static android.support.test.espresso.action.ViewActions.closeSoftKeyboard;
 import static android.support.test.espresso.action.ViewActions.typeText;
 import static android.support.test.espresso.assertion.ViewAssertions.matches;
-
-import android.content.Context;
-import android.support.test.InstrumentationRegistry;
-import android.support.test.espresso.Espresso;
 import android.support.test.rule.ActivityTestRule;
 import android.support.test.runner.AndroidJUnit4;
-
-import com.example.zoilaharo.myapp.MainActivity;
-import com.example.zoilaharo.myapp.R;
 
 import org.junit.Rule;
 import org.junit.Test;
@@ -22,6 +15,8 @@ import org.junit.runner.RunWith;
 
 import static android.support.test.espresso.matcher.ViewMatchers.withId;
 import static android.support.test.espresso.matcher.ViewMatchers.withText;
+import static android.support.test.espresso.intent.Intents.intended;
+import static android.support.test.espresso.intent.matcher.IntentMatchers.hasComponent;
 
 @RunWith(AndroidJUnit4.class)
 public class MainActivityTest {
@@ -31,24 +26,32 @@ public class MainActivityTest {
 
 
     @Test
-    public void testGreet() {
-        onView(withId(R.id.greetEditText))
+    public void form() {
+        onView(withId(R.id.name_edittext))
                 .perform(typeText("Zoila"), closeSoftKeyboard());
 
-        onView(withText("Greet")).perform(click());
+        onView(withId(R.id.email_edittext))
+                .perform(typeText("zoila@myemail.com"), closeSoftKeyboard());
 
-        onView(withId(R.id.messageTextView))
-                .check(matches(withText("Hello, Zoila!")));
+        onView(withId(R.id.username_edittext))
+                .perform(typeText("butterfly"), closeSoftKeyboard());
+
+//        onView(withId(R.id.birthday_edittext))
+//                .perform(typeText("4-19-1990"), closeSoftKeyboard());
+
+//        onView(withId(R.id.birthday_edittext)).perform(click());
+//        onData(anything()).atPosition(1).perform(click());
+//        onView(withId(R.id.custom_spinner)).check(matches(withSpinnerText(containsString("yourstring"))));
+//        onView(withId(R.id.conf_info))
+//                .check(matches(withText("@string/confmessage")));
     }
 
-    @Test
-    public void testMenu() {
-
-        openActionBarOverflowOrOptionsMenu(getInstrumentation().getTargetContext());
-
-        onView(withText(R.string.Morning)).perform(click());
-        openActionBarOverflowOrOptionsMenu(getInstrumentation().getTargetContext());
-        onView(withText(R.string.Night)).perform(click());
-
-    }
+//    @Test
+//    public void testOnClick() {
+//
+//        onView(withText("@string/signup")).perform(click());
+//        intended(hasComponent(Confirmation.class.getName()));
+//
+//
+//    }
 }
