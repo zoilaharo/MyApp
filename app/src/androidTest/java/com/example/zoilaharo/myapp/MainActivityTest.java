@@ -6,17 +6,28 @@ import static android.support.test.espresso.action.ViewActions.click;
 import static android.support.test.espresso.action.ViewActions.closeSoftKeyboard;
 import static android.support.test.espresso.action.ViewActions.typeText;
 import static android.support.test.espresso.assertion.ViewAssertions.matches;
+
+
+import android.support.test.espresso.contrib.PickerActions;
 import android.support.test.rule.ActivityTestRule;
 import android.support.test.runner.AndroidJUnit4;
+import android.widget.DatePicker;
 
+import org.hamcrest.Matchers;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
-import static android.support.test.espresso.matcher.ViewMatchers.withId;
-import static android.support.test.espresso.matcher.ViewMatchers.withText;
 import static android.support.test.espresso.intent.Intents.intended;
 import static android.support.test.espresso.intent.matcher.IntentMatchers.hasComponent;
+import static android.support.test.espresso.matcher.ViewMatchers.withClassName;
+import static android.support.test.espresso.matcher.ViewMatchers.withId;
+import static android.support.test.espresso.assertion.ViewAssertions.matches;
+import static android.support.test.espresso.matcher.RootMatchers.withDecorView;
+import static android.support.test.espresso.matcher.ViewMatchers.isDisplayed;
+import static android.support.test.espresso.matcher.ViewMatchers.withText;
+import static org.hamcrest.Matchers.is;
+import static org.hamcrest.Matchers.not;
 
 @RunWith(AndroidJUnit4.class)
 public class MainActivityTest {
@@ -34,24 +45,21 @@ public class MainActivityTest {
                 .perform(typeText("zoila@myemail.com"), closeSoftKeyboard());
 
         onView(withId(R.id.username_edittext))
-                .perform(typeText("butterfly"), closeSoftKeyboard());
+                .perform(typeText("buttercup"), closeSoftKeyboard());
 
-//        onView(withId(R.id.birthday_edittext))
-//                .perform(typeText("4-19-1990"), closeSoftKeyboard());
+        setDate(R.id.datePickerDialogButton, 2010, 1, 1);
 
-//        onView(withId(R.id.birthday_edittext)).perform(click());
-//        onData(anything()).atPosition(1).perform(click());
-//        onView(withId(R.id.custom_spinner)).check(matches(withSpinnerText(containsString("yourstring"))));
-//        onView(withId(R.id.conf_info))
-//                .check(matches(withText("@string/confmessage")));
+        onView(withText(R.string.agetoast)).inRoot(withDecorView(not(mActivityRule.getActivity().getWindow().getDecorView()))).check(matches(isDisplayed()));
+
+        setDate(R.id.datePickerDialogButton, 1994, 1, 1);
+
+
     }
 
-//    @Test
-//    public void testOnClick() {
-//
-//        onView(withText("@string/signup")).perform(click());
-//        intended(hasComponent(Confirmation.class.getName()));
-//
-//
-//    }
+    public static void setDate(int datePickerLaunchViewId, int year, int monthOfYear, int dayOfMonth) {
+        onView(withId(datePickerLaunchViewId)).perform(click());
+        onView(withClassName(Matchers.equalTo(DatePicker.class.getName()))).perform(PickerActions.setDate(year, monthOfYear, dayOfMonth));
+        onView(withId(android.R.id.button1)).perform(click());
+    }
 }
+

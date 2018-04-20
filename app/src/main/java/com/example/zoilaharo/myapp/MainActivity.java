@@ -64,7 +64,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
             submitForm();
         }
         else
-            Toast.makeText(getApplicationContext(),"You must be 18 or older.",Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(),R.string.agetoast,Toast.LENGTH_SHORT).show();
 
 
     }
@@ -116,12 +116,12 @@ public class MainActivity extends Activity implements View.OnClickListener {
 
                         minAdultAge.add(android.icu.util.Calendar.YEAR, -18);
                         if (minAdultAge.before(userAge)) {
-                            Toast.makeText(getApplicationContext(),"You must be 18 or older.",Toast.LENGTH_SHORT).show();
+                            Toast.makeText(getApplicationContext(),R.string.agetoast,Toast.LENGTH_SHORT).show();
                             passTestDate = false;
                         }
                         if(year > thisyear)
                         {
-                            Toast.makeText(getApplicationContext(),"Year must be greater than current year.",Toast.LENGTH_SHORT).show();
+                            Toast.makeText(getApplicationContext(),R.string.yeartoast,Toast.LENGTH_SHORT).show();
                             passTestDate = false;
                         }
 
@@ -137,7 +137,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
 
                 DatePickerDialog datePickerDialog = new DatePickerDialog(MainActivity.this, android.R.style.Theme_Holo_Dialog, onDateSetListener, year, month, day);
                 // Set dialog icon and title.
-                datePickerDialog.setTitle("Please select date.");
+                datePickerDialog.setTitle(R.string.select);
 
                 // Popup the dialog.
                 datePickerDialog.show();

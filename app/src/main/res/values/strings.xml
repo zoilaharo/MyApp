@@ -7,6 +7,9 @@
     <string name="feedbackusername">Enter your user name</string>
     <string name="feedbackage">Enter your age</string>
     <string name="feedbackdob">Enter your date of birth</string>
+
+    <string name="agetoast">You must be 18 or older.</string>
+    <string name="yeartoast">Year must be greater than current year.</string>
     <string name="name">Name</string>
     <string name="username">User Name</string>
     <string name="age">Age</string>
@@ -18,10 +21,17 @@
     <string name="here_is_values">Here is values: %1$s</string>
     <string name="getdate">Get Date</string>
     <string name="selectdate">Select your date of birth</string>
+    <string name="select">Select Date</string>
     <string name="main">Main</string>
     <string name="confirmation">Confirmation Page</string>
     <string name="confmessage">Welcome </string>
     <string name="gobackbutton">Go Back</string>
+
+    <string name="testzoila">Zoila</string>
+    <string name="testemail">zoila@myemail.com"</string>
+    <string name="testusername">butterfly</string>
+
+    <string name="dash">-</string>
 
 
 </resources>
