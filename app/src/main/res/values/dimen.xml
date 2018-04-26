@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <dimen name="zero">0dp</dimen>
     <dimen name="textview_top5">5dp</dimen>
     <dimen name="textview_top10">10dp</dimen>
     <dimen name="textview_top20">20dp</dimen>

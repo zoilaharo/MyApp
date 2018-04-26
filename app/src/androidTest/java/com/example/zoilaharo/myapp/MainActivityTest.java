@@ -4,11 +4,14 @@ import static android.support.test.espresso.Espresso.onView;
 import static android.support.test.espresso.Espresso.openActionBarOverflowOrOptionsMenu;
 import static android.support.test.espresso.action.ViewActions.click;
 import static android.support.test.espresso.action.ViewActions.closeSoftKeyboard;
+import static android.support.test.espresso.action.ViewActions.scrollTo;
 import static android.support.test.espresso.action.ViewActions.typeText;
 import static android.support.test.espresso.assertion.ViewAssertions.matches;
 
 
+import android.provider.SyncStateContract;
 import android.support.test.espresso.contrib.PickerActions;
+import android.support.test.espresso.intent.Intents;
 import android.support.test.rule.ActivityTestRule;
 import android.support.test.runner.AndroidJUnit4;
 import android.widget.DatePicker;
@@ -20,6 +23,7 @@ import org.junit.runner.RunWith;
 
 import static android.support.test.espresso.intent.Intents.intended;
 import static android.support.test.espresso.intent.matcher.IntentMatchers.hasComponent;
+import static android.support.test.espresso.intent.matcher.IntentMatchers.hasExtra;
 import static android.support.test.espresso.matcher.ViewMatchers.withClassName;
 import static android.support.test.espresso.matcher.ViewMatchers.withId;
 import static android.support.test.espresso.assertion.ViewAssertions.matches;
@@ -53,6 +57,59 @@ public class MainActivityTest {
 
         setDate(R.id.datePickerDialogButton, 1994, 1, 1);
 
+        onView(withId(R.id.signup_button)).perform(click());
+
+
+
+        onView(withId(R.id.name_acct_textview))
+                .check(matches(withText("Name")));
+
+        onView(withId(R.id.name_acct))
+                .check(matches(withText("Zoila")));
+
+        onView(withId(R.id.username_acct_textview))
+                .check(matches(withText("User Name")));
+
+        onView(withId(R.id.username_acct))
+                .check(matches(withText("buttercup")));
+
+        onView(withId(R.id.age_acct_textview))
+                .check(matches(withText("Age")));
+
+        onView(withId(R.id.age_acct))
+                .check(matches(withText("24")));
+
+        onView(withId(R.id.description_acct_edittext))
+                .perform(typeText("I like to hike every morning."), closeSoftKeyboard());
+
+        onView(withId(R.id.occupation_acct_edittext))
+                .perform(typeText("Professional Skater"), closeSoftKeyboard());
+
+
+        //TestUtils.rotateScreen(activityTestRule.getActivity());
+        TestUtils.rotateScreen(mActivityRule.getActivity());
+
+        onView(withId(R.id.name_acct))
+                .check(matches(withText("Zoila")));
+
+        onView(withId(R.id.username_acct_textview))
+                .check(matches(withText("User Name")));
+
+        onView(withId(R.id.username_acct))
+                .check(matches(withText("buttercup")));
+
+        onView(withId(R.id.age_acct_textview))
+                .check(matches(withText("Age")));
+
+        onView(withId(R.id.age_acct))
+                .check(matches(withText("24")));
+
+        onView(withId(R.id.description_acct_edittext))
+                .check(matches(withText("I like to hike every morning.")));
+
+
+        onView(withId(R.id.occupation_acct_edittext))
+                .check(matches(withText("Professional Skater")));
 
     }
 
@@ -60,6 +117,25 @@ public class MainActivityTest {
         onView(withId(datePickerLaunchViewId)).perform(click());
         onView(withClassName(Matchers.equalTo(DatePicker.class.getName()))).perform(PickerActions.setDate(year, monthOfYear, dayOfMonth));
         onView(withId(android.R.id.button1)).perform(click());
+    }
+
+    @Test
+    public void canGoToSecondActivityWithMessage() {
+        onView(withId(R.id.name_edittext)).perform(typeText("Zoila"));
+        onView(withId(R.id.username_edittext)).perform(typeText("buttercup"));
+        onView(withId(R.id.age_edittext)).perform(typeText("24"));
+
+        try {
+            Intents.init();
+            onView(withId(R.id.signup_button)).perform(scrollTo(), click());
+            intended(hasComponent(Account.class.getName()));
+            intended(hasExtra("name_edittext", "Zoila"));
+            intended(hasExtra("username_edittext", "buttercup"));
+            intended(hasExtra("age_edittext", "24"));
+
+        } finally {
+            Intents.release();
+        }
     }
 }
 

@@ -1,6 +1,6 @@
 <resources>
-    <string name="app_name">Fiddleheads Fern</string>
-    <string name="myinfo_edittext">Pena, Zoila Haro 4/19/2018</string>
+    <string name="app_name">Dating Website</string>
+    <string name="myinfo_edittext">Pena, Zoila Haro 4/26/2018</string>
     <string name="header">Please enter your information.</string>
     <string name="feedbacktitle">Enter your name</string>
     <string name="feedbackemail">Enter your email</string>
@@ -10,11 +10,14 @@
 
     <string name="agetoast">You must be 18 or older.</string>
     <string name="yeartoast">Year must be greater than current year.</string>
+    <string name="myinfo">My info</string>
     <string name="name">Name</string>
     <string name="username">User Name</string>
     <string name="age">Age</string>
     <string name="email">Email</string>
     <string name="dob">DOB</string>
+    <string name="description">Enter Description</string>
+    <string name="occupation">Enter Occupation</string>
     <string name="signup">Sign-up</string>
    <string name="register_form_text">Sign-up</string>
     <string name="no_field_can_be_empty">No field can be empty</string>
@@ -30,6 +33,8 @@
     <string name="testzoila">Zoila</string>
     <string name="testemail">zoila@myemail.com"</string>
     <string name="testusername">butterfly</string>
+
+    <string name="myprofile">My Profile</string>
 
     <string name="dash">-</string>
 
