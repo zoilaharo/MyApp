@@ -9,6 +9,7 @@ import static android.support.test.espresso.action.ViewActions.typeText;
 import static android.support.test.espresso.assertion.ViewAssertions.matches;
 
 
+import android.content.Intent;
 import android.provider.SyncStateContract;
 import android.support.test.espresso.contrib.PickerActions;
 import android.support.test.espresso.intent.Intents;
@@ -111,6 +112,8 @@ public class MainActivityTest {
         onView(withId(R.id.occupation_acct_edittext))
                 .check(matches(withText("Professional Skater")));
 
+        onView(withId(R.id.bt_go_back)).perform(click());
+
     }
 
     public static void setDate(int datePickerLaunchViewId, int year, int monthOfYear, int dayOfMonth) {
@@ -137,5 +140,6 @@ public class MainActivityTest {
             Intents.release();
         }
     }
+
 }
 
