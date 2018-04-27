@@ -114,6 +114,7 @@ public class MainActivityTest {
 
         onView(withId(R.id.bt_go_back)).perform(click());
 
+
     }
 
     public static void setDate(int datePickerLaunchViewId, int year, int monthOfYear, int dayOfMonth) {

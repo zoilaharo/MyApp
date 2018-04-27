@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <LinearLayout
+        android:id="@+id/relativeLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="20dp">
+        tools:context=".MainActivity"
+        android:orientation="vertical">
 
         <TextView
             android:id="@+id/myinfo_edittext"
@@ -52,49 +54,48 @@
             android:hint="@string/username"
             android:imeOptions="flagNoExtractUi"/>
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="2">
 
-        <EditText
-            android:id="@+id/birthday_edittext"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="date"
-            android:layout_marginTop="@dimen/textview_top20"
-            android:imeOptions="flagNoExtractUi"/>
+                <EditText
+                    android:id="@+id/birthday_edittext"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="date"
+                    android:layout_marginTop="@dimen/textview_top20"
+                    android:hint="@string/dob"
+                    android:imeOptions="flagNoExtractUi"
+                    android:layout_weight="1"/>
 
-        <Button
-            android:id="@+id/datePickerDialogButton"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/selectdate"
-            android:layout_weight="1"/>
+                <EditText
+                    android:id="@+id/age_edittext"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="date"
+                    android:layout_marginTop="@dimen/textview_top20"
+                    android:hint="@string/age"
+                    android:imeOptions="flagNoExtractUi"
+                    android:layout_weight="1"/>
+            </LinearLayout>
 
 
-        <EditText
-            android:id="@+id/age_edittext"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="date"
-            android:layout_marginTop="@dimen/textview_top20"
-            android:hint="@string/age"
-            android:imeOptions="flagNoExtractUi"/>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginTop="@dimen/textview_top20"
-            android:gravity="center_vertical">
-
-        </LinearLayout>
 
             <Button
-            android:id="@+id/signup_button"
-            android:layout_width="match_parent"
+            android:id="@+id/datePickerDialogButton"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:paddingTop="@dimen/textview_top10"
-            android:paddingBottom="@dimen/textview_top10"
-            android:layout_marginTop="@dimen/textview_top20"
-            android:gravity="center"
+            android:text="@string/pickdate"
+            />
+
+            <Button
+                android:id="@+id/signup_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:gravity="center_horizontal|bottom"
             android:text="@string/signup" android:onClick="onClick"/>
 
         </LinearLayout>
