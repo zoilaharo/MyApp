@@ -18,7 +18,8 @@
 
             </intent-filter>
         </activity>
-        <activity android:name=".Account"
+
+        <activity android:name=".UserAccount"
             android:parentActivityName=".MainActivity">
             android:label="@string/confirmation"
             android:parentActivityName="com.example.zoilaharo.myapp.MainActivity" >

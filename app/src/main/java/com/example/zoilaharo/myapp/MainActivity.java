@@ -2,6 +2,10 @@ package com.example.zoilaharo.myapp;
 
 import android.app.Activity;
 import android.app.DatePickerDialog;
+import android.support.v4.app.FragmentTransaction;
+import android.support.v4.app.FragmentManager;
+//import android.app.FragmentTransaction;
+import android.app.Fragment;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.InputType;
@@ -24,49 +28,36 @@ import java.util.GregorianCalendar;
 
 
 public class MainActivity extends Activity implements View.OnClickListener {
-    private EditText name_edittext,username_edittext,email_edittext,birthday_edittext,age_edittext;
+    private EditText name_edittext,username_edittext,email_edittext,birthday_edittext,age_edittext,occupation_edittext,description_edittext;
     private Button signup_button;
     private DatePickerDialog picker;
     private boolean passTestDate = true;
     public static final String EXTRA_MESSAGE = "com.example.zoilaharo.myapp.MESSAGE";
-
+    private FragmentManager manager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-
-
         //Bind views with their ids
         bindViews();
-
         //Set listeners of view
         setViewActions();
-
         this.showDatePickerDialog();
-
     }
 
     private void bindViews(){
         username_edittext =findViewById(R.id.username_edittext);
         name_edittext = findViewById(R.id.name_edittext);
         email_edittext = findViewById(R.id.email_edittext);
+        occupation_edittext = findViewById(R.id.occupation_edittext);
+        description_edittext = findViewById(R.id.description_edittext);
         age_edittext = findViewById(R.id.age_edittext);
         birthday_edittext = findViewById((R.id.birthday_edittext));
         birthday_edittext.setInputType(InputType.TYPE_NULL);
         signup_button = (Button)findViewById(R.id.signup_button);
         signup_button.setOnClickListener(this);
     }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // return super.onCreateOptionsMenu(menu);
-        MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.menu, menu);
-        return true;
-    }
-
 
     private void showMessage(String msg) {
         Toast.makeText(this, msg, Toast.LENGTH_SHORT).show();
@@ -81,53 +72,44 @@ public class MainActivity extends Activity implements View.OnClickListener {
     @Override
     public void onClick(View v) {
         if(passTestDate == true) {
-            submitForm();
+            //goToUserActivity();
+           submitForm();
         }
         else
             Toast.makeText(getApplicationContext(),R.string.agetoast,Toast.LENGTH_SHORT).show();
     }
 
-
-    public void mnuBack(MenuItem item) {
-        Toast.makeText(this, "@string/gobackbutton", Toast.LENGTH_SHORT).show();
+    public void goToUserActivity(){
+        Intent intent = new Intent(this, UserAccount.class);
+        String message = username_edittext.getText().toString();
+        intent.putExtra(EXTRA_MESSAGE, message);
+        startActivity(intent);
     }
 
-
     private void submitForm(){
-//        Intent startNewActivity = new Intent (this, Account.class);
-//        EditText editText = (EditText) findViewById(R.id.username_edittext);
-//        String message = editText.getText().toString();
-//        startNewActivity.putExtra(EXTRA_MESSAGE, message);
-//        startActivity(startNewActivity);
-
         boolean a = TextUtils.isEmpty(username_edittext.getText());
         boolean b = TextUtils.isEmpty(name_edittext.getText());
         boolean c = TextUtils.isEmpty(age_edittext.getText());
+        boolean d = TextUtils.isEmpty(occupation_edittext.getText());
+        boolean e = TextUtils.isEmpty(description_edittext.getText());
+        boolean f = TextUtils.isEmpty(email_edittext.getText());
 
-        if (!a & !b & !c) {
-//            Intent intent = new Intent (this, Account.class);
-//            String username = username_edittext.getText().toString();
-//            String name = name_edittext.getText().toString();
-//            String age = age_edittext.getText().toString();
-//            Bundle bundle = new Bundle();
-//            bundle.putString("username_edittext", username);
-//            bundle.putString("name_edittext", name);
-//            bundle.putString("age_edittext", age);
-//            intent.putExtra("info", bundle);
-//            startActivity(intent);
-
-            Intent intent = new Intent (this, Account.class);
+        if (!a && !b && !c && !d && !e) {
+            Intent intent = new Intent (this, UserAccount.class);
             String username = username_edittext.getText().toString();
             String name = name_edittext.getText().toString();
+            String email = email_edittext.getText().toString();
             String age = age_edittext.getText().toString();
-            //Bundle bundle = new Bundle();
-            intent.putExtra("username_edittext", username);
+            String occupation = occupation_edittext.getText().toString();
+            String description = description_edittext.getText().toString();
             intent.putExtra("name_edittext", name);
+            intent.putExtra("username_edittext", username);
+            intent.putExtra("email_edittext", email);
             intent.putExtra("age_edittext", age);
-            //intent.putExtra("info", bundle);
+            intent.putExtra("occupation_edittext", occupation);
+            intent.putExtra("description_edittext", description);
             startActivity(intent);
         }
-
     }
 
     // Create and show a DatePickerDialog when click button.
@@ -204,6 +186,5 @@ public class MainActivity extends Activity implements View.OnClickListener {
         finish();
         startActivity(getIntent());
     }
-
 
 }
