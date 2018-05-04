@@ -130,22 +130,22 @@ public class MainActivityTest {
         onView(withId(android.R.id.button1)).perform(click());
     }
 
-    @Rule
-    public ActivityTestRule<MainActivity> activityTestRule
-            = new ActivityTestRule<MainActivity>(MainActivity.class) {
-        @Override
-        protected Intent getActivityIntent() {
-            Intent testIntent = new Intent();
-            testIntent.putExtra("Ruby Roundhouse", "Ruby Roundhouse");
-            testIntent.putExtra("avatar", "avatar");
-            testIntent.putExtra("ruby@myemail.com", "ruby@myemail.com");
-            testIntent.putExtra("24", "24");
-            testIntent.putExtra("Martha's avatar", "Martha's avatar");
-            testIntent.putExtra("Commando, martial artist, and dance fighter.", "Commando, martial artist, and dance fighter.");
-
-            return testIntent;
-        }
-    };
+//    @Rule
+//    public ActivityTestRule<MainActivity> activityTestRule
+//            = new ActivityTestRule<MainActivity>(MainActivity.class) {
+//        @Override
+//        protected Intent getActivityIntent() {
+//            Intent testIntent = new Intent();
+//            testIntent.putExtra("Ruby Roundhouse", "Ruby Roundhouse");
+//            testIntent.putExtra("avatar", "avatar");
+//            testIntent.putExtra("ruby@myemail.com", "ruby@myemail.com");
+//            testIntent.putExtra("24", "24");
+//            testIntent.putExtra("Martha's avatar", "Martha's avatar");
+//            testIntent.putExtra("Commando, martial artist, and dance fighter.", "Commando, martial artist, and dance fighter.");
+//
+//            return testIntent;
+//        }
+//    };
 
 
 }
