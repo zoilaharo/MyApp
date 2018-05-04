@@ -2,11 +2,12 @@ package com.example.zoilaharo.myapp;
 
 import android.app.Activity;
 import android.app.DatePickerDialog;
+import android.content.Intent;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.app.FragmentManager;
 //import android.app.FragmentTransaction;
 import android.app.Fragment;
-import android.content.Intent;
+
 import android.os.Bundle;
 import android.text.InputType;
 
