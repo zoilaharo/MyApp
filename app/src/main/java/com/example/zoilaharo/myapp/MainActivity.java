@@ -81,14 +81,14 @@ public class MainActivity extends Activity implements View.OnClickListener {
 
 
     private void submitForm(){
-        boolean a = TextUtils.isEmpty(username_edittext.getText());
-        boolean b = TextUtils.isEmpty(name_edittext.getText());
-        boolean c = TextUtils.isEmpty(age_edittext.getText());
-        boolean d = TextUtils.isEmpty(occupation_edittext.getText());
-        boolean e = TextUtils.isEmpty(description_edittext.getText());
-        boolean f = TextUtils.isEmpty(email_edittext.getText());
-
-        if (!a && !b && !c && !d && !e && !f) {
+//        boolean a = TextUtils.isEmpty(username_edittext.getText());
+//        boolean b = TextUtils.isEmpty(name_edittext.getText());
+//        boolean c = TextUtils.isEmpty(age_edittext.getText());
+//        boolean d = TextUtils.isEmpty(occupation_edittext.getText());
+//        boolean e = TextUtils.isEmpty(description_edittext.getText());
+//        boolean f = TextUtils.isEmpty(email_edittext.getText());
+//
+//        if (!a && !b && !c && !d && !e && !f) {
             Intent intent = new Intent (this, UserAccount.class);
             String username = username_edittext.getText().toString();
             String name = name_edittext.getText().toString();
@@ -103,7 +103,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
             intent.putExtra("occupation_edittext", occupation);
             intent.putExtra("description_edittext", description);
             startActivity(intent);
-        }
+//        }
     }
 
     // Create and show a DatePickerDialog when click button.
