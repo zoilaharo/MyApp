@@ -72,19 +72,12 @@ public class MainActivity extends Activity implements View.OnClickListener {
     @Override
     public void onClick(View v) {
         if(passTestDate == true) {
-            //goToUserActivity();
            submitForm();
         }
         else
             Toast.makeText(getApplicationContext(),R.string.agetoast,Toast.LENGTH_SHORT).show();
     }
 
-    public void goToUserActivity(){
-        Intent intent = new Intent(this, UserAccount.class);
-        String message = username_edittext.getText().toString();
-        intent.putExtra(EXTRA_MESSAGE, message);
-        startActivity(intent);
-    }
 
     private void submitForm(){
         boolean a = TextUtils.isEmpty(username_edittext.getText());
@@ -94,7 +87,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
         boolean e = TextUtils.isEmpty(description_edittext.getText());
         boolean f = TextUtils.isEmpty(email_edittext.getText());
 
-        if (!a && !b && !c && !d && !e) {
+        if (!a && !b && !c && !d && !e && !f) {
             Intent intent = new Intent (this, UserAccount.class);
             String username = username_edittext.getText().toString();
             String name = name_edittext.getText().toString();
