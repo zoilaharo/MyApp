@@ -60,4 +60,15 @@
     <string name="profile">Profile</string>
     <string name="matches">Matches</string>
     <string name="settings">Settings</string>
+
+    <string name="profFrag_name">Profile_Fragname</string>
+    <string name="profFrag_username">Profile_Fragusername</string>
+    <string name="profFrag_email">Profile_Fragemail</string>
+    <string name="profFrag_age">Profile_Fragage</string>
+    <string name="profFrag_occupation">Profile_FragOccupation</string>
+    <string name="profFrag_description">Profile_FragDesc</string>
+
+    <string name="score_value">Score value: %d</string>
+    <string name="Action">Action</string>
+
 </resources>
