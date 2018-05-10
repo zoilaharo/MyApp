@@ -19,7 +19,7 @@
             android:weightSum="2">
 
             <ImageView
-                android:layout_width="0dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 app:layout_constraintLeft_toLeftOf="@+id/bt_go_back"
                 android:src="@drawable/profileimg"
@@ -50,7 +50,7 @@
                 android:id="@+id/name_acct_profile"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-
+                android:inputType="text"
                 />
         </LinearLayout>
         <LinearLayout
@@ -69,7 +69,7 @@
                 android:id="@+id/username_acct_profile"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-
+                android:inputType="text"
                 />
         </LinearLayout>
 
@@ -89,7 +89,7 @@
                 android:id="@+id/email_acct_profile"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-
+                android:inputType="text"
                 />
 
         </LinearLayout>
@@ -109,6 +109,7 @@
                 android:id="@+id/age_acct_profile"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:inputType="text"
                 />
 
         </LinearLayout>
@@ -129,6 +130,7 @@
                 android:id="@+id/description_acct_profile"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:inputType="text"
                 />
 
         </LinearLayout>
@@ -149,6 +151,7 @@
                 android:id="@+id/occupation_acct_profile"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:inputType="text"
                 />
 
         </LinearLayout>

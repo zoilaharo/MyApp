@@ -46,8 +46,8 @@ public class MatchesContentFragment extends Fragment {
         public TextView name;
         public ViewHolder(LayoutInflater inflater, ViewGroup parent) {
             super(inflater.inflate(R.layout.item_matches, parent, false));
-            picture = itemView.findViewById(R.id.matches_image);
-            name = itemView.findViewById(R.id.matches_title);
+            picture = (ImageView) itemView.findViewById(R.id.matches_image);
+            name = (TextView) itemView.findViewById(R.id.matches_title);
         }
     }
     /**
