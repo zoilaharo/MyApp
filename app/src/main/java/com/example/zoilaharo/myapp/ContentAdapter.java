@@ -6,8 +6,8 @@ import android.view.ViewGroup;
 
 public class ContentAdapter extends RecyclerView.Adapter<ViewHolder> {
     // Set numbers of List in RecyclerView.
-    private static final int LENGTH = 2;
-//    private static final int LENGTH = 18;
+//    private static final int LENGTH = 5;
+    private static final int LENGTH = 18;
 
     public ContentAdapter() {
     }

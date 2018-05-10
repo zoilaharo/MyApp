@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">Dating Website</string>
-    <string name="myinfo_edittext">Pena, Zoila Haro 5/3/2018</string>
+    <string name="myinfo_edittext">Pena, Zoila Haro 5/10/2018</string>
     <string name="header">Please enter your information.</string>
     <string name="feedbacktitle">Enter your name</string>
     <string name="feedbackemail">Enter your email</string>
@@ -71,4 +71,6 @@
     <string name="score_value">Score value: %d</string>
     <string name="Action">Action</string>
 
+    <string name="like">Like</string>
+    <string name="liketoast">Thanks for liking!</string>
 </resources>

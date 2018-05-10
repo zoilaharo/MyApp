@@ -1,25 +1,31 @@
 package com.example.zoilaharo.myapp;
 
-import android.support.v4.app.FragmentTransaction;
 import android.content.Intent;
+import android.app.ActionBar;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.EditText;
-
 import java.util.ArrayList;
 import java.util.List;
+import android.util.Log;
+import android.view.View;
+import android.widget.Toast;
 
 
-public class UserAccount extends AppCompatActivity {
+public class UserAccount extends AppCompatActivity implements FragmentManager.OnBackStackChangedListener, View.OnClickListener{
     String name, username, email, age, occupation, description;
+    public FragmentManager manager;
+    private static final String TAG = UserAccount.class.getSimpleName();
+
+    TabLayout tabLayout;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,15 +34,14 @@ public class UserAccount extends AppCompatActivity {
         // Adding Toolbar to Main screen
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
         // Setting ViewPager for each Tabs
         ViewPager viewPager = (ViewPager) findViewById(R.id.viewpager);
         setupViewPager(viewPager);
+
         // Set Tabs inside Toolbar
         TabLayout tabs = (TabLayout) findViewById(R.id.tabs);
         tabs.setupWithViewPager(viewPager);
-
-
-
     }
 
     public class Operation {
@@ -113,6 +118,10 @@ public class UserAccount extends AppCompatActivity {
     }
 
     @Override
+    public void onClick(View v) {
+            Toast.makeText(getApplicationContext(),R.string.liketoast,Toast.LENGTH_SHORT).show();
+    }
+    @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
@@ -124,6 +133,35 @@ public class UserAccount extends AppCompatActivity {
             return true;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+        public void addFragmentMatches(View view) {
+        android.support.v4.app.Fragment fragmentMatches = new MatchesContentFragment();
+        android.support.v4.app.FragmentTransaction transaction = manager.beginTransaction();
+        transaction.add(R.id.container, fragmentMatches, "fragMatches");
+        transaction.addToBackStack("AddFragMatches");
+        transaction.commit();
+    }
+        @Override
+    public void onBackStackChanged() {
+        int length = manager.getBackStackEntryCount();
+        StringBuilder msg = new StringBuilder();
+        for(int i = length - 1; i >= 0; i--) {
+            msg.append("Index ").append(i).append(" : ");
+            msg.append(manager.getBackStackEntryAt(i).getName());
+            msg.append("\n");
+        }
+
+        Log.i(TAG, "\n" + msg.toString() + " \n ");
+    }
+
+    @Override
+    public void onBackPressed() {
+        if (manager.getBackStackEntryCount() > 0) {
+            manager.popBackStack();
+        } else {
+            super.onBackPressed();
+        }
     }
 }
 

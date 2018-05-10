@@ -120,8 +120,6 @@ public class MainActivityTest {
 
         onView(withId(R.id.occupation_acct_profile))
                 .check(matches(withText("Martha's avatar")));
-
-
     }
 
     public static void setDate(int datePickerLaunchViewId, int year, int monthOfYear, int dayOfMonth) {
@@ -146,7 +144,6 @@ public class MainActivityTest {
             return testIntent;
         }
     };
-
 
 }
 
