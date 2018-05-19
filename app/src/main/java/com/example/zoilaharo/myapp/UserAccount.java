@@ -1,13 +1,11 @@
 package com.example.zoilaharo.myapp;
 
 import android.content.Intent;
-import android.app.ActionBar;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
-import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -15,15 +13,20 @@ import android.view.Menu;
 import android.view.MenuItem;
 import java.util.ArrayList;
 import java.util.List;
-import android.util.Log;
+
 import android.view.View;
 import android.widget.Toast;
 
+import com.example.zoilaharo.myapp.Model.MatchesModel;
+import com.example.zoilaharo.myapp.viewmodels.MatchesViewModel;
 
-public class UserAccount extends AppCompatActivity implements FragmentManager.OnBackStackChangedListener, View.OnClickListener{
+
+public class UserAccount extends AppCompatActivity implements  View.OnClickListener, MatchesContentFragment.OnListFragmentInteractionListener{
     String name, username, email, age, occupation, description;
     public FragmentManager manager;
     private static final String TAG = UserAccount.class.getSimpleName();
+    private MatchesViewModel viewModel;
+
 
     TabLayout tabLayout;
     @Override
@@ -119,7 +122,7 @@ public class UserAccount extends AppCompatActivity implements FragmentManager.On
 
     @Override
     public void onClick(View v) {
-            Toast.makeText(getApplicationContext(),R.string.liketoast,Toast.LENGTH_SHORT).show();
+        Toast.makeText(getApplicationContext(),R.string.liketoast,Toast.LENGTH_SHORT).show();
     }
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -135,24 +138,12 @@ public class UserAccount extends AppCompatActivity implements FragmentManager.On
         return super.onOptionsItemSelected(item);
     }
 
-        public void addFragmentMatches(View view) {
+    public void addFragmentMatches(View view) {
         android.support.v4.app.Fragment fragmentMatches = new MatchesContentFragment();
         android.support.v4.app.FragmentTransaction transaction = manager.beginTransaction();
         transaction.add(R.id.container, fragmentMatches, "fragMatches");
         transaction.addToBackStack("AddFragMatches");
         transaction.commit();
-    }
-        @Override
-    public void onBackStackChanged() {
-        int length = manager.getBackStackEntryCount();
-        StringBuilder msg = new StringBuilder();
-        for(int i = length - 1; i >= 0; i--) {
-            msg.append("Index ").append(i).append(" : ");
-            msg.append(manager.getBackStackEntryAt(i).getName());
-            msg.append("\n");
-        }
-
-        Log.i(TAG, "\n" + msg.toString() + " \n ");
     }
 
     @Override
@@ -163,5 +154,16 @@ public class UserAccount extends AppCompatActivity implements FragmentManager.On
             super.onBackPressed();
         }
     }
-}
+    @Override
+    public void onListFragmentInteraction(MatchesModel item) {
+        boolean liked = false;
+        liked = item.liked;
+        if (!liked) {
+            liked = true;
+        } else {
+            liked = false;
+        }
+        viewModel.updateMatchesItem(item);
+    }
 
+}

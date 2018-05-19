@@ -5,6 +5,10 @@ import android.content.pm.ActivityInfo;
 import android.content.res.Configuration;
 import android.support.test.InstrumentationRegistry;
 
+import org.hamcrest.BaseMatcher;
+import org.hamcrest.Matcher;
+import org.junit.runner.Description;
+
 import java.util.concurrent.CountDownLatch;
 
 import static android.support.test.InstrumentationRegistry.getInstrumentation;
@@ -35,4 +39,5 @@ public class TestUtils {
             throw new RuntimeException("Screen rotation failed", e);
         }
     }
+
 }

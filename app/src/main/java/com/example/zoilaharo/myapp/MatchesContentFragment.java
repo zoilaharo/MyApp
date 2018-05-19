@@ -1,84 +1,93 @@
 package com.example.zoilaharo.myapp;
 
-import android.os.Bundle;
-import android.support.v4.app.Fragment;
-import android.support.v7.widget.RecyclerView;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.content.Context;
-import android.content.res.Resources;
-import android.content.res.TypedArray;
-import android.graphics.drawable.Drawable;
-import android.support.v7.widget.GridLayoutManager;
-import android.widget.ImageView;
-import android.widget.TextView;
+        import android.os.Bundle;
+        import android.os.Parcelable;
+        import android.support.annotation.NonNull;
+        import android.support.annotation.Nullable;
+        import android.support.v4.app.Fragment;
+        import android.support.v7.widget.LinearLayoutManager;
+        import android.support.v7.widget.RecyclerView;
+        import android.util.Log;
+        import android.view.LayoutInflater;
+        import android.view.View;
+        import android.view.ViewGroup;
+        import android.content.Context;
+
+        import com.example.zoilaharo.myapp.Model.MatchesModel;
+        import com.example.zoilaharo.myapp.viewmodels.MatchesViewModel;
+        import java.util.ArrayList;
+
+        import static com.android.volley.VolleyLog.TAG;
 
 
-/**
- * Provides UI for the view with Cards.
- */
 public class MatchesContentFragment extends Fragment {
-
+    private RecyclerView recyclerView;
+    private MatchesRecyclerViewAdapter adapter;
+    private OnListFragmentInteractionListener mListener;
+    private Parcelable recylerViewState;
+    public static final String ARG_COLUMN_COUNT = "column-count";
+    public static final String ARG_DATA_SET = "matches";
+    private int mColumnCount = 6;
+    ArrayList<MatchesModel> mMatches;
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        if (getArguments() != null) {
+            mColumnCount = getArguments().getInt(ARG_COLUMN_COUNT);
+            mMatches = getArguments().getParcelableArrayList(ARG_DATA_SET);
+        }
+        Log.i(TAG, "onCreate()");
+    }
+    @Override
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        RecyclerView recyclerView = (RecyclerView) inflater.inflate(
-                R.layout.recycler_view, container, false);
-        ContentAdapter adapter = new ContentAdapter(recyclerView.getContext());
-        recyclerView.setAdapter(adapter);
-        recyclerView.setHasFixedSize(true);
-        // Set padding for Tiles
-        int tilePadding = getResources().getDimensionPixelSize(R.dimen.tile_padding);
-        recyclerView.setPadding(tilePadding, tilePadding, tilePadding, tilePadding);
-        recyclerView.setLayoutManager(new GridLayoutManager(getActivity(), 2));
+        recyclerView = (RecyclerView) inflater.inflate(R.layout.recycler_view, container, false);
+        // Instantiate view model
+        MatchesViewModel viewModel = new MatchesViewModel();
+        // Set the adapter
+        viewModel.getDataFromViewModel(
+                (ArrayList<MatchesModel> matches) -> {
+                    MatchesRecyclerViewAdapter adapter = new MatchesRecyclerViewAdapter(matches, mListener);
+                    recyclerView.setAdapter(adapter);
+                    //recyclerView.setHasFixedSize(true);
+                    RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getActivity());
+                    if (recylerViewState != null) {
+                        recyclerView.getLayoutManager().onRestoreInstanceState(recylerViewState);
+                    }
+                    recyclerView.setLayoutManager(layoutManager);
+                }
+        );
         return recyclerView;
     }
 
-    public static class ViewHolder extends RecyclerView.ViewHolder {
-        public ImageView picture;
-        public TextView name;
-        public ViewHolder(LayoutInflater inflater, ViewGroup parent) {
-            super(inflater.inflate(R.layout.item_matches, parent, false));
-            picture = (ImageView) itemView.findViewById(R.id.matches_image);
-            name = (TextView) itemView.findViewById(R.id.matches_title);
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+        if(context instanceof OnListFragmentInteractionListener){
+            mListener = (OnListFragmentInteractionListener) context;
+        } else{
+            throw new RuntimeException(context.toString()
+                    + " must implement OnListFragmentInteractionListener");
         }
-    }
-    /**
-     * Adapter to display recycler view.
-     */
-    public static class ContentAdapter extends RecyclerView.Adapter<ViewHolder> {
-        // Set numbers of List in RecyclerView.
-        private static final int LENGTH = 3;
-        private final String[] mPlaces;
-        private final Drawable[] mPlacePictures;
-        public ContentAdapter(Context context) {
-            Resources resources = context.getResources();
-            mPlaces = resources.getStringArray(R.array.places);
-            TypedArray a = resources.obtainTypedArray(R.array.places_picture);
-            mPlacePictures = new Drawable[a.length()];
-            for (int i = 0; i < mPlacePictures.length; i++) {
-                mPlacePictures[i] = a.getDrawable(i);
-            }
-            a.recycle();
-        }
-
-        @Override
-        public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-            return new ViewHolder(LayoutInflater.from(parent.getContext()), parent);
-        }
-
-        @Override
-        public void onBindViewHolder(ViewHolder holder, int position) {
-            holder.picture.setImageDrawable(mPlacePictures[position % mPlacePictures.length]);
-            holder.name.setText(mPlaces[position % mPlaces.length]);
-        }
-
-        @Override
-        public int getItemCount() {
-            return LENGTH;
-        }
+        Log.i(TAG, "onAttach()");
     }
 
+    @Override
+    public void onDetach() {
+        super.onDetach();
+        mListener = null;
+        Log.i(TAG, "onDetach()");
+    }
+
+
+    public interface OnListFragmentInteractionListener {
+        void onListFragmentInteraction(MatchesModel item);
+    }
+
+    @Override
+    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+        Log.i(TAG, "onActivityCreated()");
+    }
 }

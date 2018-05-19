@@ -10,9 +10,12 @@
         android:layout_height="wrap_content"
         android:text="Settings" />
 
+
     <FrameLayout
         android:id="@+id/settings_fragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_margin="@dimen/textview_top10"/>
+
+
 </LinearLayout>
