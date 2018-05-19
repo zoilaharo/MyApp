@@ -196,16 +196,16 @@ public class MainActivityTest {
         }
     };
 
-    @Test
-    protected void testMatches(){
-        
-        onView(withId(R.id.matches_fragment)).perform(RecyclerViewActions
-                .actionOnItem(allOf(hasDescendant(withText("MatchName"))), click()));
-
-        onView(withId(R.id.recycler_view)
-                .atPositionOnView(1, R.id.like_button))
-                .perform(scrollTo(), click());
-    }
+//    @Test
+//    protected void testMatches(){
+//
+//        onView(withId(R.id.matches_fragment)).perform(RecyclerViewActions
+//                .actionOnItem(allOf(hasDescendant(withText("MatchName"))), click()));
+//
+//        onView(withId(R.id.recycler_view)
+//                .atPositionOnView(1, R.id.like_button))
+//                .perform(scrollTo(), click());
+//    }
 
 }
 
