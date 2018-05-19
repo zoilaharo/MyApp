@@ -16,6 +16,7 @@ package com.example.zoilaharo.myapp;
         import com.example.zoilaharo.myapp.Model.MatchesModel;
         import com.example.zoilaharo.myapp.viewmodels.MatchesViewModel;
         import java.util.ArrayList;
+        import java.util.List;
 
         import static com.android.volley.VolleyLog.TAG;
 
@@ -23,12 +24,13 @@ package com.example.zoilaharo.myapp;
 public class MatchesContentFragment extends Fragment {
     private RecyclerView recyclerView;
     private MatchesRecyclerViewAdapter adapter;
+    private MatchesViewModel viewModel;
     private OnListFragmentInteractionListener mListener;
-    private Parcelable recylerViewState;
+//    private Parcelable recylerViewState;
     public static final String ARG_COLUMN_COUNT = "column-count";
     public static final String ARG_DATA_SET = "matches";
     private int mColumnCount = 6;
-    ArrayList<MatchesModel> mMatches;
+    private List<MatchesModel> mMatches;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -43,19 +45,18 @@ public class MatchesContentFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         recyclerView = (RecyclerView) inflater.inflate(R.layout.recycler_view, container, false);
-        // Instantiate view model
-        MatchesViewModel viewModel = new MatchesViewModel();
-        // Set the adapter
+
+        viewModel = new MatchesViewModel();
+
+        adapter = new MatchesRecyclerViewAdapter(mMatches, mListener);
+
+        recyclerView.setAdapter(adapter);
+        recyclerView.setHasFixedSize(true);
+        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+
         viewModel.getDataFromViewModel(
                 (ArrayList<MatchesModel> matches) -> {
-                    MatchesRecyclerViewAdapter adapter = new MatchesRecyclerViewAdapter(matches, mListener);
-                    recyclerView.setAdapter(adapter);
-                    //recyclerView.setHasFixedSize(true);
-                    RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getActivity());
-                    if (recylerViewState != null) {
-                        recyclerView.getLayoutManager().onRestoreInstanceState(recylerViewState);
-                    }
-                    recyclerView.setLayoutManager(layoutManager);
+                   adapter.updateMatchesListItems(matches);
                 }
         );
         return recyclerView;

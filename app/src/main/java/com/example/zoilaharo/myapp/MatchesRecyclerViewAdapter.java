@@ -22,12 +22,12 @@ import static com.android.volley.VolleyLog.TAG;
 public class MatchesRecyclerViewAdapter extends RecyclerView.Adapter<MatchesRecyclerViewAdapter.ViewHolder>
 {
     // Set numbers of List in RecyclerView.
-    private ArrayList<MatchesModel> aMatches;
+    private List<MatchesModel> aMatches;
     private final MatchesContentFragment.OnListFragmentInteractionListener mListener;
     private static final String TAG = MainActivity.class.getSimpleName();
 
 
-    public MatchesRecyclerViewAdapter(ArrayList<MatchesModel> items, MatchesContentFragment.OnListFragmentInteractionListener listener) {
+    public MatchesRecyclerViewAdapter(List<MatchesModel> items, MatchesContentFragment.OnListFragmentInteractionListener listener) {
         this.aMatches = items;
         this.mListener = listener;
     }
@@ -44,10 +44,11 @@ public class MatchesRecyclerViewAdapter extends RecyclerView.Adapter<MatchesRecy
         //Add values from firebase to an arraylist of Matches
         holder.vMatches = aMatches.get(position);
         holder.name.setText(aMatches.get(position).name);
-        holder.simageUrl = aMatches.get(position).imageUrl;
+        //holder.simageUrl = aMatches.get(position).imageUrl;
 
-        Picasso.get().load(holder.simageUrl).into(holder.picture);
-        holder.liked = aMatches.get(position).liked;
+//        Picasso.get().load(holder.simageUrl).into(holder.picture);
+        Picasso.get().load(aMatches.get(position).imageUrl).into(holder.picture);
+        //holder.liked = aMatches.get(position).liked;
     }
 
    @Override
@@ -81,12 +82,15 @@ public class MatchesRecyclerViewAdapter extends RecyclerView.Adapter<MatchesRecy
 
     }
 
-//    public void updateMatchesListItems(List<MatchesModel> matches) {
-//        final MatchesDiffCallback diffCallback = new MatchesDiffCallback(this.aMatches, matches);
-//        final DiffUtil.DiffResult diffResult = DiffUtil.calculateDiff(diffCallback);
-//
-//        this.aMatches.clear();
-//        this.aMatches.addAll(matches);
-//        diffResult.dispatchUpdatesTo(this);
-//    }
+    public void updateMatchesListItems(List<MatchesModel> matches) {
+        if (aMatches == null) {
+            aMatches = new ArrayList<>();
+        }
+        final MatchesDiffCallback diffCallback = new MatchesDiffCallback(this.aMatches, matches);
+        final DiffUtil.DiffResult diffResult = DiffUtil.calculateDiff(diffCallback);
+
+        this.aMatches.clear();
+        this.aMatches.addAll(matches);
+        diffResult.dispatchUpdatesTo(this);
+    }
 }
