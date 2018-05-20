@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.zoilaharo.myapp.Model.MatchesModel;
 import com.squareup.picasso.Picasso;
@@ -49,6 +50,15 @@ public class MatchesRecyclerViewAdapter extends RecyclerView.Adapter<MatchesRecy
 //        Picasso.get().load(holder.simageUrl).into(holder.picture);
         Picasso.get().load(aMatches.get(position).imageUrl).into(holder.picture);
         //holder.liked = aMatches.get(position).liked;
+
+        holder.view.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (null != mListener) {
+                    mListener.onListFragmentInteraction(holder.vMatches);
+                }
+            }
+        });
     }
 
    @Override
@@ -62,7 +72,7 @@ public class MatchesRecyclerViewAdapter extends RecyclerView.Adapter<MatchesRecy
         }
     }
 
-    public static class ViewHolder extends RecyclerView.ViewHolder {
+    public class ViewHolder extends RecyclerView.ViewHolder {
         public final ImageView picture;
         public final TextView name;
         public ImageButton btnlike;
@@ -77,6 +87,19 @@ public class MatchesRecyclerViewAdapter extends RecyclerView.Adapter<MatchesRecy
             picture = (ImageView) view.findViewById(R.id.matches_image);
             name = (TextView) view.findViewById(R.id.matches_title);
             btnlike = (ImageButton) view.findViewById(R.id.like_button);
+
+            btnlike.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if (null != mListener) {
+                        // Notify the active callbacks interface (the activity, if the fragment
+                        // is attached to one) that an item has been selected.
+                        mListener.onListFragmentInteraction(vMatches);
+                    }
+                    //Toast.makeText(v.getContext(), "You liked " + mTitleView.getText(), Toast.LENGTH_LONG).show();
+
+                }
+            });
         }
 
 

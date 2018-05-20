@@ -22,7 +22,7 @@ package com.example.zoilaharo.myapp;
 
 
 public class MatchesContentFragment extends Fragment {
-    private RecyclerView recyclerView;
+
     private MatchesRecyclerViewAdapter adapter;
     private MatchesViewModel viewModel;
     private OnListFragmentInteractionListener mListener;
@@ -32,19 +32,11 @@ public class MatchesContentFragment extends Fragment {
     private int mColumnCount = 6;
     private List<MatchesModel> mMatches;
 
-    @Override
-    public void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mColumnCount = getArguments().getInt(ARG_COLUMN_COUNT);
-            mMatches = getArguments().getParcelableArrayList(ARG_DATA_SET);
-        }
-        Log.i(TAG, "onCreate()");
-    }
+
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        recyclerView = (RecyclerView) inflater.inflate(R.layout.recycler_view, container, false);
+        RecyclerView recyclerView = (RecyclerView) inflater.inflate(R.layout.recycler_view, container, false);
 
         viewModel = new MatchesViewModel();
 
@@ -74,14 +66,6 @@ public class MatchesContentFragment extends Fragment {
         Log.i(TAG, "onAttach()");
     }
 
-    @Override
-    public void onDetach() {
-        super.onDetach();
-        mListener = null;
-        Log.i(TAG, "onDetach()");
-    }
-
-
     public interface OnListFragmentInteractionListener {
         void onListFragmentInteraction(MatchesModel item);
     }
@@ -91,4 +75,22 @@ public class MatchesContentFragment extends Fragment {
         super.onActivityCreated(savedInstanceState);
         Log.i(TAG, "onActivityCreated()");
     }
+
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        if (getArguments() != null) {
+            mColumnCount = getArguments().getInt(ARG_COLUMN_COUNT);
+            mMatches = getArguments().getParcelableArrayList(ARG_DATA_SET);
+        }
+        Log.i(TAG, "onCreate()");
+    }
+
+    @Override
+    public void onDetach() {
+        super.onDetach();
+        mListener = null;
+        Log.i(TAG, "onDetach()");
+    }
+
 }

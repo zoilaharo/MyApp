@@ -30,33 +30,8 @@
             android:layout_alignBottom="@+id/matches_image"
             android:layout_marginLeft="@dimen/md_keylines"
             android:textAppearance="@style/TextAppearance.AppCompat.Title"
-            android:textColor="@color/dark_grey"
+            android:textColor="@color/dark_grey"/>
 
-            />
-
-        <TextView
-            android:id="@+id/card_text"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/matches_image"
-            android:layout_marginLeft="@dimen/md_keylines"
-            android:layout_marginTop="@dimen/md_keylines"
-            android:layout_marginBottom="@dimen/md_keylines"
-            android:layout_marginRight="@dimen/md_keylines"
-            tools:text="@string/item_desc"
-            android:ellipsize="end"
-            android:singleLine="true"
-            android:textColor="@color/dark_grey"
-            android:textSize="@dimen/article_subheading" />
-
-        <Button
-            android:id="@+id/action_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/card_text"
-            style="?android:attr/borderlessButtonStyle"
-            android:textColor="?attr/colorPrimary"
-            android:text="Action" />
 
         <ImageButton
             android:id="@+id/like_button"
@@ -64,16 +39,18 @@
             android:layout_height="@dimen/cards_button_height"
             android:layout_marginRight="@dimen/md_keylines"
             app:srcCompat="@drawable/ic_favorite_black_24dp"
-            android:layout_below="@+id/card_text"
+            android:layout_below="@+id/matches_title"
             android:layout_alignParentRight="true"
             style="?android:attr/borderlessButtonStyle"
             android:tint="@color/button_grey"
             android:text="@string/like" android:onClick="onClick"/>/>
 
-    </RelativeLayout>
+
     <FrameLayout
         android:id="@+id/matches_fragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_margin="@dimen/textview_top10"/>
+
+    </RelativeLayout>
 </android.support.v7.widget.CardView>

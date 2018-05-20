@@ -33,6 +33,7 @@ public class MatchesViewModel {
                         matches.uid = matchesSnapshot.getKey();
                         arrayOfusers.add(matches);
                     }
+                    resultCallback.accept(arrayOfusers);
                 },
                 (databaseError -> System.out.println("Error reading Firebase data: " + databaseError))
         );
