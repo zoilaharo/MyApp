@@ -169,8 +169,8 @@ public class MainActivityTest {
                 .check(matches(withText("Martha's avatar")));
 
 
-        onView(withId(R.id.matches_fragment)).perform(RecyclerViewActions
-                .actionOnItem(allOf(hasDescendant(withText("Thanks for liking!"))), click()));
+//        onView(withId(R.id.matches_fragment)).perform(RecyclerViewActions
+//                .actionOnItem(allOf(hasDescendant(withText("Thanks for liking!"))), click()));
     }
 
     public static void setDate(int datePickerLaunchViewId, int year, int monthOfYear, int dayOfMonth) {

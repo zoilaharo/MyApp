@@ -9,19 +9,13 @@ public class MatchesModel implements Parcelable {
     public String name;
     public String uid;;
 
-    public MatchesModel(Parcel in){
-        imageUrl = in.readString();
-        liked = in.readByte() != 0;
-        name = in.readString();
-    }
-    public MatchesModel() {
-        //Default constructor required
-    }
+    public MatchesModel(){}
+
     public static final Creator<MatchesModel> CREATOR = new Creator<MatchesModel>() {
         @Override
         public MatchesModel createFromParcel(Parcel in) {
 
-            return new MatchesModel(in);
+            return new MatchesModel();
         }
 
         @Override

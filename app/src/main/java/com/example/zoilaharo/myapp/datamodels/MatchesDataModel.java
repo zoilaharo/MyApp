@@ -38,6 +38,8 @@ public class MatchesDataModel {
             public void onCancelled(DatabaseError databaseError) {
                 dataErrorCallback.accept(databaseError);
             }
+
+
         };
         dataFirebaseRef.addValueEventListener(dataFirebaseListener);
         listeners.put(dataFirebaseRef, dataFirebaseListener);

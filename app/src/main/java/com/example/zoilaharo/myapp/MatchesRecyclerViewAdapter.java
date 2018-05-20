@@ -49,9 +49,9 @@ public class MatchesRecyclerViewAdapter extends RecyclerView.Adapter<MatchesRecy
 
 //        Picasso.get().load(holder.simageUrl).into(holder.picture);
         Picasso.get().load(aMatches.get(position).imageUrl).into(holder.picture);
-        //holder.liked = aMatches.get(position).liked;
+        holder.liked = aMatches.get(position).liked;
 
-        holder.view.setOnClickListener(new View.OnClickListener() {
+        holder.btnlike.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 if (null != mListener) {
@@ -92,11 +92,9 @@ public class MatchesRecyclerViewAdapter extends RecyclerView.Adapter<MatchesRecy
                 @Override
                 public void onClick(View v) {
                     if (null != mListener) {
-                        // Notify the active callbacks interface (the activity, if the fragment
-                        // is attached to one) that an item has been selected.
                         mListener.onListFragmentInteraction(vMatches);
                     }
-                    //Toast.makeText(v.getContext(), "You liked " + mTitleView.getText(), Toast.LENGTH_LONG).show();
+                    Toast.makeText(v.getContext(), "You liked " + name.getText(), Toast.LENGTH_LONG).show();
 
                 }
             });
