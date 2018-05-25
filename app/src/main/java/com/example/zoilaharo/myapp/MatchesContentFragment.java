@@ -1,7 +1,6 @@
 package com.example.zoilaharo.myapp;
 
         import android.os.Bundle;
-        import android.os.Parcelable;
         import android.support.annotation.NonNull;
         import android.support.annotation.Nullable;
         import android.support.v4.app.Fragment;
@@ -12,12 +11,10 @@ package com.example.zoilaharo.myapp;
         import android.view.View;
         import android.view.ViewGroup;
         import android.content.Context;
-
         import com.example.zoilaharo.myapp.Model.MatchesModel;
         import com.example.zoilaharo.myapp.viewmodels.MatchesViewModel;
         import java.util.ArrayList;
         import java.util.List;
-
         import static com.android.volley.VolleyLog.TAG;
 
 
@@ -26,7 +23,7 @@ public class MatchesContentFragment extends Fragment {
     private MatchesRecyclerViewAdapter adapter;
     private MatchesViewModel viewModel;
     private OnListFragmentInteractionListener mListener;
-//    private Parcelable recylerViewState;
+
     public static final String ARG_COLUMN_COUNT = "column-count";
     public static final String ARG_DATA_SET = "matches";
     private int mColumnCount = 6;

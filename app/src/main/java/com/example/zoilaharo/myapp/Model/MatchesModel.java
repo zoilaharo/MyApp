@@ -12,9 +12,9 @@ public class MatchesModel implements Parcelable {
     public MatchesModel(){}
 
     public static final Creator<MatchesModel> CREATOR = new Creator<MatchesModel>() {
-        @Override
-        public MatchesModel createFromParcel(Parcel in) {
 
+       @Override
+        public MatchesModel createFromParcel(Parcel in) {
             return new MatchesModel();
         }
 
@@ -24,6 +24,7 @@ public class MatchesModel implements Parcelable {
             return new MatchesModel[size];
         }
     };
+
     @Override
     public int describeContents() {
         return 0;

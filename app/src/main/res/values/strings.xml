@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">Dating Website</string>
-    <string name="myinfo_edittext">Pena, Zoila Haro 5/17/2018</string>
+    <string name="myinfo_edittext">Pena, Zoila Haro 5/24/2018</string>
     <string name="header">Please enter your information.</string>
     <string name="feedbacktitle">Enter your name</string>
     <string name="feedbackemail">Enter your email</string>
@@ -73,4 +73,20 @@
 
     <string name="like">Like</string>
     <string name="liketoast">Thanks for liking!</string>
+
+    <string name="settings_id">ID</string>
+    <string name="setting_reminderTime">Reminder Time</string>
+    <string name="setting_gender">Gender</string>
+    <string name="setting_status">Status</string>
+    <string name="setting_agemin">Age Min</string>
+    <string name="setting_agemax">Age Max</string>
+    <string name="update">Update</string>
+    <string name="delete">Delete</string>
+    <string name="photoUrl">PhotoUrl</string>
+
+    <string name ="mysettings">My Settings</string>
+    <string name ="maxDistance">Max Distance</string>
+    <string name ="privacy">Privacy</string>
+
+
 </resources>

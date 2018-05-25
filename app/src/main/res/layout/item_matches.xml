@@ -30,7 +30,7 @@
             android:layout_alignBottom="@+id/matches_image"
             android:layout_marginLeft="@dimen/md_keylines"
             android:textAppearance="@style/TextAppearance.AppCompat.Title"
-            android:textColor="@color/dark_grey"/>
+            android:textColor="@color/white"/>
 
 
         <ImageButton

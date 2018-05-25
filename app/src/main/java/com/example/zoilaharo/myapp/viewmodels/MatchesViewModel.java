@@ -10,20 +10,16 @@ import com.example.zoilaharo.myapp.datamodels.MatchesDataModel;
 import com.google.firebase.database.DataSnapshot;
 
 public class MatchesViewModel {
-    private MatchesDataModel model;
-
+    private MatchesDataModel datamodel;
 
     public MatchesViewModel() {
 
-        model = new MatchesDataModel();
+        datamodel = new MatchesDataModel();
     }
 
-    public void addmatchItem(MatchesModel item) {
-        model.addMatchItem(item);
-    }
     public void getDataFromViewModel(Consumer<ArrayList<MatchesModel>> resultCallback) {
 
-        model.getDataFromDataModel(
+        datamodel.getDataFromDataModel(
                 (DataSnapshot dataSnapshot) -> {
                     ArrayList<MatchesModel> arrayOfusers= new ArrayList<>();
                     for (DataSnapshot matchesSnapshot : dataSnapshot.getChildren()) {
@@ -40,9 +36,9 @@ public class MatchesViewModel {
     }
     //updates the item in the database
     public void updateMatchesItem(MatchesModel person) {
-        model.updateMatchesItemById(person);
+        datamodel.updateMatchesItemById(person);
     }
     public void clear() {
-        model.clear();
+        datamodel.clear();
     }
 }

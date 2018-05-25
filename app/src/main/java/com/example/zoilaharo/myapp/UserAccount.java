@@ -78,9 +78,12 @@ public class UserAccount extends AppCompatActivity implements  View.OnClickListe
 
         ProfileContentFragment profile = new ProfileContentFragment();
         profile.setOperation(new Operation(name, username, age, email, occupation, description));
+        SettingsContentFragment settings = new SettingsContentFragment();
+        settings.setOperation(new Operation(name, username, age, email, occupation, description));
+
         adapter.addFragment(profile, "Profile");
         adapter.addFragment(new MatchesContentFragment(), "Matches");
-        adapter.addFragment(new SettingsContentFragment(), "Settings");
+        adapter.addFragment(settings, "Settings");
         viewPager.setAdapter(adapter);
     }
 

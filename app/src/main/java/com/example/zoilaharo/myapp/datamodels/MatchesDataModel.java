@@ -17,12 +17,10 @@ public class MatchesDataModel {
     private DatabaseReference mDatabase;
     private HashMap<DatabaseReference, ValueEventListener> listeners;
 
-
     public MatchesDataModel() {
         mDatabase = FirebaseDatabase.getInstance().getReference();
         listeners = new HashMap<>();
     }
-
 
     public void getDataFromDataModel(Consumer<DataSnapshot> dataChangedCallback, Consumer<DatabaseError> dataErrorCallback) {
         // This is where we can construct our path
@@ -38,17 +36,11 @@ public class MatchesDataModel {
             public void onCancelled(DatabaseError databaseError) {
                 dataErrorCallback.accept(databaseError);
             }
-
-
         };
         dataFirebaseRef.addValueEventListener(dataFirebaseListener);
         listeners.put(dataFirebaseRef, dataFirebaseListener);
     }
 
-    public void addMatchItem(MatchesModel item) {
-        DatabaseReference matchItemsRef = mDatabase.child("matches");
-        matchItemsRef.push().setValue(item);
-    }
     //updates person by id
     public void updateMatchesItemById(MatchesModel matches) {
         DatabaseReference matchesItemsRef = mDatabase.child("matches");
