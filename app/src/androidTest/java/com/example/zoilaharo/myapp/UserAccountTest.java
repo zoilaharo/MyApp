@@ -225,33 +225,33 @@ public class UserAccountTest {
 
     }
 
-    @Test
-    public void testLikes() {
-        UserAccount activity = activityTestRule.getActivity();
-
-        //swipe to matches tab
-        onView(withId(R.id.viewpager))
-                .perform(swipeLeft());
-
-        //click like button
-        onView(withId(R.id.my_recycler_view)).perform(
-                RecyclerViewActions.actionOnItemAtPosition(0, TestUtils.clickChildViewWithId(R.id.like_button)));
-
-        onView(withId(R.id.my_recycler_view)).perform(
-                RecyclerViewActions.actionOnItemAtPosition(1, TestUtils.clickChildViewWithId(R.id.like_button)));
-
-        onView(withId(R.id.my_recycler_view)).perform(
-                RecyclerViewActions.actionOnItemAtPosition(2, TestUtils.clickChildViewWithId(R.id.like_button)));
-
-        onView(withId(R.id.my_recycler_view)).perform(
-                RecyclerViewActions.actionOnItemAtPosition(3, TestUtils.clickChildViewWithId(R.id.like_button)));
-
-        onView(withId(R.id.my_recycler_view)).perform(
-                RecyclerViewActions.actionOnItemAtPosition(4, TestUtils.clickChildViewWithId(R.id.like_button)));
-
-        onView(withId(R.id.my_recycler_view)).perform(
-                RecyclerViewActions.actionOnItemAtPosition(5, TestUtils.clickChildViewWithId(R.id.like_button)));
-    }
+//    @Test
+//    public void testLikes() {
+//        UserAccount activity = activityTestRule.getActivity();
+//
+//        //swipe to matches tab
+//        onView(withId(R.id.viewpager))
+//                .perform(swipeLeft());
+//
+//        //click like button
+//        onView(withId(R.id.my_recycler_view)).perform(
+//                RecyclerViewActions.actionOnItemAtPosition(0, TestUtils.clickChildViewWithId(R.id.like_button)));
+//
+//        onView(withId(R.id.my_recycler_view)).perform(
+//                RecyclerViewActions.actionOnItemAtPosition(1, TestUtils.clickChildViewWithId(R.id.like_button)));
+//
+//        onView(withId(R.id.my_recycler_view)).perform(
+//                RecyclerViewActions.actionOnItemAtPosition(2, TestUtils.clickChildViewWithId(R.id.like_button)));
+//
+//        onView(withId(R.id.my_recycler_view)).perform(
+//                RecyclerViewActions.actionOnItemAtPosition(3, TestUtils.clickChildViewWithId(R.id.like_button)));
+//
+//        onView(withId(R.id.my_recycler_view)).perform(
+//                RecyclerViewActions.actionOnItemAtPosition(4, TestUtils.clickChildViewWithId(R.id.like_button)));
+//
+//        onView(withId(R.id.my_recycler_view)).perform(
+//                RecyclerViewActions.actionOnItemAtPosition(5, TestUtils.clickChildViewWithId(R.id.like_button)));
+//    }
 
 
 
