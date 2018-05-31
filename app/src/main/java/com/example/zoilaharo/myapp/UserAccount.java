@@ -23,12 +23,17 @@ import com.example.zoilaharo.myapp.viewmodels.MatchesViewModel;
 
 public class UserAccount extends AppCompatActivity implements  View.OnClickListener, MatchesContentFragment.OnListFragmentInteractionListener{
     String name, username, email, age, occupation, description;
+    MatchesContentFragment matches = new MatchesContentFragment();
     public FragmentManager manager;
     private static final String TAG = UserAccount.class.getSimpleName();
     private MatchesViewModel viewModel;
-
+    android.location.LocationManager locationManager;
+    double longitudeNetwork, latitudeNetwork;
+    android.widget.TextView longitudeValueNetwork, latitudeValueNetwork;
 
     TabLayout tabLayout;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,6 +50,8 @@ public class UserAccount extends AppCompatActivity implements  View.OnClickListe
         // Set Tabs inside Toolbar
         TabLayout tabs = (TabLayout) findViewById(R.id.tabs);
         tabs.setupWithViewPager(viewPager);
+
+
     }
 
     public class Operation {
@@ -62,6 +69,25 @@ public class UserAccount extends AppCompatActivity implements  View.OnClickListe
             this.age = age;
             this.occupation = occupation;
             this.description = description;
+
+        }
+
+    }
+      public class Mylocation {
+        public double latitude;
+        public double longitude;
+
+        public Mylocation(double latitude, double longitude) {
+            this.latitude = latitude;
+            this.longitude = longitude;
+        }
+
+        public double getLat(){
+        return latitude;
+        }
+
+        public double getLong(){
+        return longitude;
         }
     }
     // Add Fragments to Tabs
@@ -80,9 +106,10 @@ public class UserAccount extends AppCompatActivity implements  View.OnClickListe
         profile.setOperation(new Operation(name, username, age, email, occupation, description));
         SettingsContentFragment settings = new SettingsContentFragment();
         settings.setOperation(new Operation(name, username, age, email, occupation, description));
+//        matches.setLocation(new Mylocation(longitudeNetwork, latitudeNetwork));        matches.setLocation(new Mylocation(longitudeNetwork, latitudeNetwork));
 
         adapter.addFragment(profile, "Profile");
-        adapter.addFragment(new MatchesContentFragment(), "Matches");
+        adapter.addFragment(matches, "Matches");
         adapter.addFragment(settings, "Settings");
         viewPager.setAdapter(adapter);
     }
@@ -141,6 +168,7 @@ public class UserAccount extends AppCompatActivity implements  View.OnClickListe
         return super.onOptionsItemSelected(item);
     }
 
+
     public void addFragmentMatches(View view) {
         android.support.v4.app.Fragment fragmentMatches = new MatchesContentFragment();
         android.support.v4.app.FragmentTransaction transaction = manager.beginTransaction();
@@ -149,14 +177,25 @@ public class UserAccount extends AppCompatActivity implements  View.OnClickListe
         transaction.commit();
     }
 
+//    @Override
+//    public void onBackPressed() {
+//        if (manager.getBackStackEntryCount() > 0) {
+//            manager.popBackStack();
+//        } else {
+//            super.onBackPressed();
+//        }
+//    }
     @Override
     public void onBackPressed() {
-        if (manager.getBackStackEntryCount() > 0) {
-            manager.popBackStack();
-        } else {
-            super.onBackPressed();
-        }
+        super.onBackPressed();
+        Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(intent);
+        finish();
     }
+
     @Override
     public void onListFragmentInteraction(MatchesModel item) {
         boolean liked = false;
@@ -168,5 +207,4 @@ public class UserAccount extends AppCompatActivity implements  View.OnClickListe
         }
         viewModel.updateMatchesItem(item);
     }
-
 }

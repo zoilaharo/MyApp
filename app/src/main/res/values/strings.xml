@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">Dating Website</string>
-    <string name="myinfo_edittext">Pena, Zoila Haro 5/24/2018</string>
+    <string name="myinfo_edittext">Pena, Zoila Haro 5/31/2018</string>
     <string name="header">Please enter your information.</string>
     <string name="feedbacktitle">Enter your name</string>
     <string name="feedbackemail">Enter your email</string>
@@ -20,6 +20,20 @@
     <string name="display_description">Description</string>
     <string name="occupation">Enter Occupation</string>
     <string name="display_occupation">Occupation</string>
+
+
+    <string name="name_profile">Name:</string>
+    <string name="username_profile">User Name:</string>
+    <string name="age_profile">Age:  </string>
+    <string name="email_profile">Email:</string>
+    <string name="dob_profile">DOB: </string>
+    <string name="description_profile">Description:</string>
+    <string name="display_description_profile">Description</string>
+    <string name="occupation_profile">Occupation: </string>
+    <string name="display_occupation_profile">Occupation</string>
+
+
+
     <string name="signup">Sign-up</string>
    <string name="register_form_text">Sign-up</string>
     <string name="no_field_can_be_empty">No field can be empty</string>
@@ -61,12 +75,12 @@
     <string name="matches">Matches</string>
     <string name="settings">Settings</string>
 
-    <string name="profFrag_name">Profile_Fragname</string>
-    <string name="profFrag_username">Profile_Fragusername</string>
-    <string name="profFrag_email">Profile_Fragemail</string>
-    <string name="profFrag_age">Profile_Fragage</string>
-    <string name="profFrag_occupation">Profile_FragOccupation</string>
-    <string name="profFrag_description">Profile_FragDesc</string>
+    <string name="profileFrag_name">Profile_Fragname</string>
+    <string name="profileFrag_username">Profile_Fragusername</string>
+    <string name="profileFrag_email">Profile_Fragemail</string>
+    <string name="profileFrag_age">Profile_Fragage</string>
+    <string name="profileFrag_occupation">Profile_FragOccupation</string>
+    <string name="profileFrag_description">Profile_FragDesc</string>
 
     <string name="score_value">Score value: %d</string>
     <string name="Action">Action</string>
@@ -75,18 +89,48 @@
     <string name="liketoast">Thanks for liking!</string>
 
     <string name="settings_id">ID</string>
-    <string name="setting_reminderTime">Reminder Time</string>
-    <string name="setting_gender">Gender</string>
-    <string name="setting_status">Status</string>
-    <string name="setting_agemin">Age Min</string>
-    <string name="setting_agemax">Age Max</string>
-    <string name="update">Update</string>
-    <string name="delete">Delete</string>
-    <string name="photoUrl">PhotoUrl</string>
+    <string name="settings_name">Name: </string>
+    <string name="settings_email">Email: </string>
+    <string name="settings_reminderTime">Reminder Time: </string>
+    <string name="settings_maxdistance">Max Distance: </string>
+    <string name="setting_gender">Gender: </string>
+    <string name="setting_status">Status: </string>
+    <string name="setting_agemin">Age Min: </string>
+    <string name="setting_agemax">Age Max: </string>
+    <string name="update">Update: </string>
+    <string name="delete">Delete: </string>
+    <string name="photoUrl">PhotoUrl: </string>
+
+    <string name="settings_id_edittext">ID</string>
+    <string name="setting_name_edittext">Name</string>
+    <string name="setting_email_edittext">Email</string>
+    <string name="setting_reminderTime_edittext">Reminder Time</string>
+    <string name="settings_maxdistance_edittext">Max Distance</string>
+    <string name="setting_gender_edittext">Gender</string>
+    <string name="setting_status_edittext">Status</string>
+    <string name="setting_agemin_edittext">Age Min</string>
+    <string name="setting_agemax_edittext">Age Max</string>
+    <string name="update_edittext">Update</string>
+    <string name="delete_edittext">Delete</string>
+    <string name="photoUrl_edittext">PhotoUrl</string>
+
 
     <string name ="mysettings">My Settings</string>
     <string name ="maxDistance">Max Distance</string>
     <string name ="privacy">Privacy</string>
 
+    <string name="pause">Pause Location Updates</string>
+    <string name="resume">Resume Location Updates</string>
+    <string name="hello_world">Hello world!</string>
+
+    <string name="go_to_location_example">Go To Location Example</string>
+    <string name="enable_location">Enable Location</string>
+    <string name="location_message">Your Locations Settings is set to \'Off\'. Please Enable Location to use this app</string>
+    <string name="location_settings">Location Settings</string>
+    <string name="location_cancel">Cancel</string>
+    <string name="network_provider_started_running">Network provider started running</string>
+    <string name="network_provider_update">Network Provider update</string>
+
+    <string name="TenmilesinMeters">TenMiles</string>
 
 </resources>

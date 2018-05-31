@@ -71,50 +71,50 @@
             android:inputType="text"
             android:hint="@string/occupation"
             android:imeOptions="flagNoExtractUi"/>
-            <LinearLayout
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="2">
+
+            <EditText
+                android:id="@+id/birthday_edittext"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:weightSum="2">
+                android:inputType="date"
+                android:layout_marginTop="@dimen/textview_top20"
+                android:hint="@string/dob"
+                android:imeOptions="flagNoExtractUi"
+                android:layout_weight="1"/>
 
-                <EditText
-                    android:id="@+id/birthday_edittext"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:inputType="date"
-                    android:layout_marginTop="@dimen/textview_top20"
-                    android:hint="@string/dob"
-                    android:imeOptions="flagNoExtractUi"
-                    android:layout_weight="1"/>
-
-                <EditText
-                    android:id="@+id/age_edittext"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:inputType="date"
-                    android:layout_marginTop="@dimen/textview_top20"
-                    android:hint="@string/age"
-                    android:imeOptions="flagNoExtractUi"
-                    android:layout_weight="1"/>
-            </LinearLayout>
+            <EditText
+                android:id="@+id/age_edittext"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="date"
+                android:layout_marginTop="@dimen/textview_top20"
+                android:hint="@string/age"
+                android:imeOptions="flagNoExtractUi"
+                android:layout_weight="1"/>
+        </LinearLayout>
 
 
 
-            <Button
+        <Button
             android:id="@+id/datePickerDialogButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/pickdate"
             />
 
-            <Button
-                android:id="@+id/signup_button"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="end"
-                android:gravity="center_horizontal|bottom"
+        <Button
+            android:id="@+id/signup_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:gravity="center_horizontal|bottom"
             android:text="@string/signup" android:onClick="onClick"/>
 
-        </LinearLayout>
+    </LinearLayout>
 
 </ScrollView>

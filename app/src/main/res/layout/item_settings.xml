@@ -10,92 +10,199 @@
         android:orientation="vertical"
         android:padding="20dp">
 
-       <TextView
+        <TextView
             android:id="@+id/textView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/mysettings"/>
-
-        <EditText
-            android:id="@+id/name_edittext_settings"
+            android:hint="@string/mysettings"
+            />
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/textview_top5"
-            android:inputType="text"
-            android:hint="@string/setting_reminderTime"
-            android:imeOptions="flagNoExtractUi"/>
+            android:orientation="horizontal"
+            android:weightSum="2">
 
-        <EditText
-            android:id="@+id/email_edittext_settings"
+            <TextView
+                android:id="@+id/name_textview_settings"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/textview_top5"
+                android:text="@string/settings_name" />
+
+            <EditText
+                android:id="@+id/name_edittext_settings"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/textview_top5"
+                android:inputType="text"
+                android:imeOptions="flagNoExtractUi"/>
+
+        </LinearLayout>
+
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/textview_top5"
-            android:inputType="text"
-            android:hint="@string/setting_reminderTime"
-            android:imeOptions="flagNoExtractUi"/>
+            android:orientation="horizontal"
+            android:weightSum="2">
+            <TextView
+                android:id="@+id/email_textview_settings"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/textview_top5"
+                android:text="@string/settings_email" />
 
-        <EditText
-            android:id="@+id/remindertime_edittext_settings"
+            <EditText
+                android:id="@+id/email_edittext_settings"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/textview_top5"
+                android:inputType="text"
+                android:imeOptions="flagNoExtractUi"/>
+
+
+        </LinearLayout>
+
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/textview_top5"
-            android:inputType="text"
-            android:hint="@string/setting_reminderTime"
-            android:imeOptions="flagNoExtractUi"/>
+            android:orientation="horizontal"
+            android:weightSum="2">
+            <TextView
+                android:id="@+id/remindertime_textview_settings"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/textview_top5"
+                android:text="@string/settings_reminderTime" />
 
-        <EditText
-            android:id="@+id/maxDistance_edittext_settings"
+            <EditText
+                android:id="@+id/remindertime_edittext_settings"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/textview_top5"
+                android:inputType="text"
+                android:imeOptions="flagNoExtractUi"/>
+
+        </LinearLayout>
+
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/textview_top5"
-            android:inputType="text"
-            android:hint="@string/maxDistance"
-            android:imeOptions="flagNoExtractUi"/>
+            android:orientation="horizontal"
+            android:weightSum="2">
+            <TextView
+                android:id="@+id/maxdistance_textview_settings"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/textview_top5"
+                android:text="@string/settings_maxdistance" />
 
-        <EditText
-            android:id="@+id/gender_edittext_settings"
+            <EditText
+                android:id="@+id/maxDistance_edittext_settings"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/textview_top5"
+                android:inputType="text"
+                android:imeOptions="flagNoExtractUi"/>
+
+        </LinearLayout>
+
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/textview_top5"
-            android:inputType="text"
-            android:hint="@string/setting_gender"
-            android:imeOptions="flagNoExtractUi"/>
+            android:orientation="horizontal"
+            android:weightSum="2">
+            <TextView
+                android:id="@+id/gender_textview_settings"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/textview_top5"
+                android:text="@string/setting_gender" />
 
-        <EditText
-            android:id="@+id/status_edittext_settings"
+            <EditText
+                android:id="@+id/gender_edittext_settings"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/textview_top5"
+                android:inputType="text"
+                android:imeOptions="flagNoExtractUi"/>
+
+        </LinearLayout>
+
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/textview_top5"
-            android:inputType="text"
-            android:hint="@string/setting_status"
-            android:imeOptions="flagNoExtractUi"/>
+            android:orientation="horizontal"
+            android:weightSum="2">
+            <TextView
+                android:id="@+id/status_textview_settings"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/textview_top5"
+                android:text="@string/setting_status" />
 
-        <EditText
-            android:id="@+id/agemin_edittext_settings"
+            <EditText
+                android:id="@+id/status_edittext_settings"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/textview_top5"
+                android:inputType="text"
+                android:imeOptions="flagNoExtractUi"/>
+
+        </LinearLayout>
+
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/textview_top5"
-            android:inputType="text"
-            android:hint="@string/setting_agemin"
-            android:imeOptions="flagNoExtractUi"/>
+            android:orientation="horizontal"
+            android:weightSum="2">
+            <TextView
+                android:id="@+id/agemin_textview_settings"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/textview_top5"
+                android:text="@string/setting_agemin" />
 
-        <EditText
-            android:id="@+id/agemax_edittext_settings"
+            <EditText
+                android:id="@+id/agemin_edittext_settings"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/textview_top5"
+                android:inputType="text"
+                android:imeOptions="flagNoExtractUi"/>
+
+        </LinearLayout>
+
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/textview_top5"
-            android:inputType="text"
-            android:hint="@string/setting_agemax"
-            android:imeOptions="flagNoExtractUi"/>
+            android:orientation="horizontal"
+            android:weightSum="2">
+            <TextView
+                android:id="@+id/agemax_textview_settings"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/textview_top5"
+                android:text="@string/setting_agemax" />
+
+            <EditText
+                android:id="@+id/agemax_edittext_settings"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/textview_top5"
+                android:inputType="text"
+                android:imeOptions="flagNoExtractUi"/>
+
+        </LinearLayout>
 
         <Button
             android:id="@+id/update"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/textview_top5"
             android:text="@string/update"/>
 
         <FrameLayout
-            android:id="@+id/profile_fragment"
+            android:id="@+id/settings_fragment"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_margin="@dimen/textview_top10"/>

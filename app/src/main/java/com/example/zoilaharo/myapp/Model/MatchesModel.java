@@ -6,6 +6,8 @@ import android.os.Parcelable;
 public class MatchesModel implements Parcelable {
     public String imageUrl;
     public boolean liked;
+    public String lat;
+    public String longitude;
     public String name;
     public String uid;;
 
@@ -35,6 +37,8 @@ public class MatchesModel implements Parcelable {
         dest.writeString(imageUrl);
         dest.writeByte((byte) (liked ? 1 : 0));
         dest.writeString(name);
+        dest.writeString(lat);
+        dest.writeString(longitude);
 
     }
 }

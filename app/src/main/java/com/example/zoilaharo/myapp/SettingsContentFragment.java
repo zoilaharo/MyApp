@@ -29,7 +29,7 @@ import java.util.List;
  */
 public class SettingsContentFragment extends Fragment {
     private UserAccount.Operation operation;
-    EditText name_View, email_View, reminderTime_View, maxDistance_View, gender_View, minAge_View, maxAge_View;
+    EditText name_View, email_View, reminderTime_View, maxDistance_View, status_View, gender_View, minAge_View, maxAge_View;
     Button update_button;
     String name, email, reminderTime, maxDistance, gender, privacy, minAge, maxAge;
     public static final int LENGTH_SHORT = 0;
@@ -46,11 +46,13 @@ public class SettingsContentFragment extends Fragment {
         reminderTime_View = view.findViewById(R.id.remindertime_edittext_settings);
         maxDistance_View = view.findViewById(R.id.maxDistance_edittext_settings);
         gender_View = view.findViewById(R.id.gender_edittext_settings);
+        status_View = view.findViewById(R.id.status_edittext_settings);
         minAge_View = view.findViewById(R.id.agemin_edittext_settings);
         maxAge_View = view.findViewById(R.id.agemax_edittext_settings);
 
 
         if (operation != null) {
+
             name = operation.name;
             email = operation.email;
             name_View.setText(name);
@@ -59,8 +61,9 @@ public class SettingsContentFragment extends Fragment {
         }
 
         if (savedInstanceState != null) {
-            name_View.setText(savedInstanceState.getString("R.string.profFrag_name", getString(R.string.name)));
-            email_View.setText(savedInstanceState.getString("R.string.profFrag_email", getString(R.string.email)));
+            name_View.setText(savedInstanceState.getString("R.string.profileFrag_name", getString(R.string.name)));
+            email_View.setText(savedInstanceState.getString("R.string.profileFrag_email", getString(R.string.email)));
+
         }
 
         update_button.setOnClickListener(v -> {
@@ -74,6 +77,7 @@ public class SettingsContentFragment extends Fragment {
             user.setFirstName(name_View.getText().toString());
             user.setReminderTime(reminderTime_View.getText().toString());
             user.setMaxDistance(maxDistance_View.getText().toString());
+            user.setStatus(status_View.getText().toString());
             user.setGender(gender_View.getText().toString());
             user.setAgeMin(Integer.parseInt(minAge_View.getText().toString()));
             user.setAgeMin(Integer.parseInt(maxAge_View.getText().toString()));
@@ -144,6 +148,7 @@ public class SettingsContentFragment extends Fragment {
 
             reminderTime_View.setText(user.getReminderTime());
             maxDistance_View.setText(user.getMaxDistance());
+            status_View.setText(user.getStatus());
             gender_View.setText(user.getGender());
             minAge_View.setText(String.valueOf(user.getAgeMin()));
             maxAge_View.setText(String.valueOf(user.getAgeMax()));
@@ -181,6 +186,7 @@ public class SettingsContentFragment extends Fragment {
             }
             reminderTime_View.setText(user.getReminderTime());
             maxDistance_View.setText(user.getMaxDistance());
+            status_View.setText(user.getStatus());
             gender_View.setText(user.getGender());
             minAge_View.setText(String.valueOf(user.getAgeMin()));
             maxAge_View.setText(String.valueOf(user.getAgeMax()));

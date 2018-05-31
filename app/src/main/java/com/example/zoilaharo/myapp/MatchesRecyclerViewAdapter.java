@@ -23,15 +23,18 @@ import static com.android.volley.VolleyLog.TAG;
 
 public class MatchesRecyclerViewAdapter extends RecyclerView.Adapter<MatchesRecyclerViewAdapter.ViewHolder>
 {
-
     private List<MatchesModel> aMatches;
     private final MatchesContentFragment.OnListFragmentInteractionListener mListener;
+
     private static final String TAG = MainActivity.class.getSimpleName();
 
     public MatchesRecyclerViewAdapter(List<MatchesModel> items, MatchesContentFragment.OnListFragmentInteractionListener listener) {
         this.aMatches = items;
         this.mListener = listener;
+
     }
+
+
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -42,8 +45,10 @@ public class MatchesRecyclerViewAdapter extends RecyclerView.Adapter<MatchesRecy
 
     @Override
     public void onBindViewHolder(@NonNull MatchesRecyclerViewAdapter.ViewHolder holder, int position) {
+
         holder.vMatches = aMatches.get(position);
         holder.name.setText(aMatches.get(position).name);
+
         Picasso.get().load(aMatches.get(position).imageUrl).into(holder.picture);
         holder.liked = aMatches.get(position).liked;
         if (!holder.liked) {
@@ -51,6 +56,8 @@ public class MatchesRecyclerViewAdapter extends RecyclerView.Adapter<MatchesRecy
         } else {
             holder.btnlike.setColorFilter(Color.GRAY);
         }
+
+
 
         holder.view.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -93,8 +100,28 @@ public class MatchesRecyclerViewAdapter extends RecyclerView.Adapter<MatchesRecy
             this.view = view;
             picture = (ImageView) view.findViewById(R.id.matches_image);
             name = (TextView) view.findViewById(R.id.matches_title);
+
             btnlike = (ImageButton) view.findViewById(R.id.like_button);
             ImageButton favoriteImageButton = itemView.findViewById(R.id.like_button);
+//            favoriteImageButton.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//                public void onClick(View v) {
+//                    if (null != mListener) {
+//                        vMatches.liked = !vMatches.liked;
+//                        if (vMatches.liked) {
+//                            favoriteImageButton.setColorFilter(Color.RED);
+//                            Toast.makeText(v.getContext(), "You liked " + name.getText(), Toast.LENGTH_LONG).show();
+//                        } else {
+//                            favoriteImageButton.setColorFilter(Color.GRAY);
+//                            Toast.makeText(v.getContext(), "You no longer liked " + name.getText(), Toast.LENGTH_LONG).show();
+//                        }
+//                        // Notify the active callbacks interface (the activity, if the fragment
+//                        // is attached to one) that an item has been selected.
+//                        mListener.onListFragmentInteraction(vMatches);
+//                    }
+//
+//                }
+//            });
         }
     }
 

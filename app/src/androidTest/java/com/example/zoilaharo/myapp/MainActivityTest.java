@@ -93,84 +93,86 @@ public class MainActivityTest {
         onView(withId(R.id.signup_button)).perform(scrollTo());
         onView(withId(R.id.signup_button)).perform(click());
 
+        onView(withId(R.id.profileImg))
+                .check(matches(isDisplayed()));
+
         onView(withId(R.id.name_acct_textview))
-                .check(matches(withText("Name")));
+                .check(matches(withText("Name:")));
 
         onView(withId(R.id.name_acct_profile))
                 .check(matches(withText("Ruby Roundhouse")));
 
         onView(withId(R.id.username_acct_textview))
-                .check(matches(withText("User Name")));
+                .check(matches(withText("User Name:")));
 
         onView(withId(R.id.username_acct_profile))
                 .check(matches(withText("avatar")));
 
         onView(withId(R.id.email_acct_textview))
-                .check(matches(withText("Email")));
+                .check(matches(withText("Email:")));
 
         onView(withId(R.id.email_acct_profile))
                 .check(matches(withText("ruby@myemail.com")));
 
         onView(withId(R.id.age_acct_textview))
-                .check(matches(withText("Age")));
+                .check(matches(withText("Age:")));
 
         onView(withId(R.id.age_acct_profile))
                 .check(matches(withText("24")));
 
         onView(withId(R.id.description_acct_textview))
-                .check(matches(withText("Description")));
+                .check(matches(withText("Description:")));
 
         onView(withId(R.id.description_acct_profile))
                 .check(matches(withText("Commando, martial artist, and dance fighter.")));
 
         onView(withId(R.id.occupation_acct_textview))
-                .check(matches(withText("Occupation")));
+                .check(matches(withText("Occupation:")));
 
         onView(withId(R.id.occupation_acct_profile))
                 .check(matches(withText("Martha's avatar")));
 
         //TestUtils.rotateScreen(activityTestRule.getActivity());
-        TestUtils.rotateScreen(mActivityRule.getActivity());
+        TestUtils.rotateScreen(activityTestRule.getActivity());
+
+        onView(withId(R.id.profileImg))
+                .check(matches(isDisplayed()));
 
         onView(withId(R.id.name_acct_textview))
-                .check(matches(withText("Name")));
+                .check(matches(withText("Name:")));
 
         onView(withId(R.id.name_acct_profile))
                 .check(matches(withText("Ruby Roundhouse")));
 
         onView(withId(R.id.username_acct_textview))
-                .check(matches(withText("User Name")));
+                .check(matches(withText("User Name:")));
 
         onView(withId(R.id.username_acct_profile))
                 .check(matches(withText("avatar")));
 
         onView(withId(R.id.email_acct_textview))
-                .check(matches(withText("Email")));
+                .check(matches(withText("Email:")));
 
         onView(withId(R.id.email_acct_profile))
                 .check(matches(withText("ruby@myemail.com")));
 
         onView(withId(R.id.age_acct_textview))
-                .check(matches(withText("Age")));
+                .check(matches(withText("Age:")));
 
         onView(withId(R.id.age_acct_profile))
                 .check(matches(withText("24")));
 
         onView(withId(R.id.description_acct_textview))
-                .check(matches(withText("Description")));
+                .check(matches(withText("Description:")));
 
         onView(withId(R.id.description_acct_profile))
                 .check(matches(withText("Commando, martial artist, and dance fighter.")));
 
         onView(withId(R.id.occupation_acct_textview))
-                .check(matches(withText("Occupation")));
+                .check(matches(withText("Occupation:")));
 
         onView(withId(R.id.occupation_acct_profile))
                 .check(matches(withText("Martha's avatar")));
-
-
-//        onView(withId(R.id.matches_fragment)).perform(RecyclerViewActions
-//                .actionOnItem(allOf(hasDescendant(withText("Thanks for liking!"))), click()));
     }
 
     public static void setDate(int datePickerLaunchViewId, int year, int monthOfYear, int dayOfMonth) {
@@ -196,16 +198,7 @@ public class MainActivityTest {
         }
     };
 
-//    @Test
-//    protected void testMatches(){
-//
-//        onView(withId(R.id.matches_fragment)).perform(RecyclerViewActions
-//                .actionOnItem(allOf(hasDescendant(withText("MatchName"))), click()));
-//
-//        onView(withId(R.id.recycler_view)
-//                .atPositionOnView(1, R.id.like_button))
-//                .perform(scrollTo(), click());
-//    }
+
 
 }
 

@@ -23,7 +23,7 @@ public class ProfileContentFragment extends Fragment {
     static final String KEY_TEXTVIEW_TEXT = "txtv_text";
     private int score;
 
-    TextView username_View, name_View, email_View, age_View,occupation_View,description_View;
+    EditText username_View, name_View, email_View, age_View,occupation_View,description_View;
 
     @Nullable
     @Override
