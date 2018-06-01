@@ -73,22 +73,17 @@ public class UserAccount extends AppCompatActivity implements  View.OnClickListe
         }
 
     }
-      public class Mylocation {
-        public double latitude;
-        public double longitude;
+      public class ProfileInfo {
+        public String maxDistance;
 
-        public Mylocation(double latitude, double longitude) {
-            this.latitude = latitude;
-            this.longitude = longitude;
+        public ProfileInfo(String maxDistance) {
+            this.maxDistance = maxDistance;
         }
 
-        public double getLat(){
-        return latitude;
+        public String getMaxDistance(){
+        return maxDistance;
         }
 
-        public double getLong(){
-        return longitude;
-        }
     }
     // Add Fragments to Tabs
     private void setupViewPager(ViewPager viewPager) {
@@ -106,6 +101,8 @@ public class UserAccount extends AppCompatActivity implements  View.OnClickListe
         profile.setOperation(new Operation(name, username, age, email, occupation, description));
         SettingsContentFragment settings = new SettingsContentFragment();
         settings.setOperation(new Operation(name, username, age, email, occupation, description));
+        MatchesContentFragment matches = new MatchesContentFragment();
+        matches.setOperation(new Operation(name, username, age, email, occupation, description));
 //        matches.setLocation(new Mylocation(longitudeNetwork, latitudeNetwork));        matches.setLocation(new Mylocation(longitudeNetwork, latitudeNetwork));
 
         adapter.addFragment(profile, "Profile");

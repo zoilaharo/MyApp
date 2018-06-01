@@ -1,6 +1,8 @@
 package com.example.zoilaharo.myapp;
 
         import android.location.Location;
+        import android.location.LocationListener;
+        import android.os.AsyncTask;
         import android.os.Bundle;
         import android.support.annotation.NonNull;
         import android.support.annotation.Nullable;
@@ -12,8 +14,12 @@ package com.example.zoilaharo.myapp;
         import android.view.View;
         import android.view.ViewGroup;
         import android.content.Context;
+
+        import com.example.zoilaharo.myapp.Entity.User;
         import com.example.zoilaharo.myapp.Model.MatchesModel;
         import com.example.zoilaharo.myapp.viewmodels.MatchesViewModel;
+
+        import java.lang.ref.WeakReference;
         import java.util.ArrayList;
         import java.util.List;
 
@@ -23,6 +29,7 @@ package com.example.zoilaharo.myapp;
 
 public class MatchesContentFragment extends Fragment {
     private int TENMILES = 16094;
+    private int DISTANCE = 0;
     private MatchesRecyclerViewAdapter adapter;
     private MatchesViewModel viewModel;
     private OnListFragmentInteractionListener mListener;
@@ -32,6 +39,9 @@ public class MatchesContentFragment extends Fragment {
     private List<MatchesModel> mMatches;
     double longitudeNetwork, latitudeNetwork;
      android.location.LocationManager locationManager;
+    private UserAccount.Operation operation;
+    String email;
+    List<User> users = null;
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
@@ -53,7 +63,9 @@ public class MatchesContentFragment extends Fragment {
 
         return recyclerView;
     }
-
+    public void setOperation(UserAccount.Operation operation) {
+        this.operation = operation;
+    }
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
@@ -83,6 +95,7 @@ public class MatchesContentFragment extends Fragment {
             mColumnCount = getArguments().getInt(ARG_COLUMN_COUNT);
             mMatches = getArguments().getParcelableArrayList(ARG_DATA_SET);
         }
+
         Log.i(TAG, "onCreate()");
     }
 
@@ -131,31 +144,13 @@ public class MatchesContentFragment extends Fragment {
     }
    private final android.location.LocationListener locationListenerNetwork = new android.location.LocationListener() {
         public void onLocationChanged(android.location.Location location) {
-            ArrayList<MatchesModel> tempMatch = new ArrayList<MatchesModel>();
-            longitudeNetwork = location.getLongitude();
-            latitudeNetwork = location.getLatitude();
+            if (operation != null) {
 
-//            longitudeNetwork = -122.2875770;
-//            latitudeNetwork = 47.6827860;
+                email = operation.email;
 
-             viewModel.getDataFromViewModel(
-                (ArrayList<MatchesModel> matches) -> {
 
-                    for(int x = 0; x < matches.size(); x++)
-                    {
-                     double lat1 = Double.parseDouble(matches.get(x).lat);
-                     double long1 = Double.parseDouble(matches.get(x).longitude);
-                     float[] distance = new float[1];
-
-                        Location.distanceBetween(latitudeNetwork, longitudeNetwork, lat1, long1, distance);
-                        if (distance[0] > TENMILES) {
-                            tempMatch.add(matches.get(x));
-                        }
-                        adapter.updateMatchesListItems(tempMatch);
-                    }
-
-                }
-        );
+            }
+            new MatchesContentFragment.GetUserTask(MatchesContentFragment.this, email, location).execute();
         }
 
         @Override
@@ -167,5 +162,70 @@ public class MatchesContentFragment extends Fragment {
         @Override
         public void onProviderDisabled(String s) {}
     };
+    private class GetUserTask extends AsyncTask<Void, Void, User> {
+
+        private WeakReference<Fragment> weakFragment;
+        private String email;
+        private Location location;
+
+        public GetUserTask(android.support.v4.app.Fragment fragment, String email, Location location) {
+            weakFragment = new WeakReference<>(fragment);
+            this.email = email;
+            this.location = location;
+        }
+
+        @Override
+        protected User doInBackground(Void... voids) {
+            Fragment fragment = weakFragment.get();
+            if (fragment == null) {
+                return null;
+            }
+
+            AppDatabase db = AppDatabaseSingleton.getDatabase(fragment.getActivity());
+            String[] emails = { email };
+
+            users = db.userDao().loadAllByIds(emails);
+
+            if(users.size() <= 0 || users.get(0) == null) {
+                return null;
+            }
+            return users.get(0);
+        }
+
+        @Override
+        protected void onPostExecute(User user) {
+            MatchesContentFragment fragment = (MatchesContentFragment) weakFragment.get();
+            if (user == null || fragment == null) {
+                return;
+            }
+            DISTANCE = Integer.parseInt(user.getMaxDistance());
+
+            ArrayList<MatchesModel> tempMatch = new ArrayList<MatchesModel>();
+
+            longitudeNetwork = location.getLongitude();
+            latitudeNetwork = location.getLatitude();
+
+            viewModel.getDataFromViewModel(
+                    (ArrayList<MatchesModel> matches) -> {
+
+                        for(int x = 0; x < matches.size(); x++)
+                        {
+                            double lat1 = Double.parseDouble(matches.get(x).lat);
+                            double long1 = Double.parseDouble(matches.get(x).longitude);
+                            float[] distance = new float[1];
+
+                            Location.distanceBetween(latitudeNetwork, longitudeNetwork, lat1, long1, distance);
+                            if (distance[0] < DISTANCE) {
+                                tempMatch.add(matches.get(x));
+                            }
+                            adapter.updateMatchesListItems(tempMatch);
+                        }
+
+                    }
+            );
+
+
+        }
+    }
 
 }

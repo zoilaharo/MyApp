@@ -25,6 +25,7 @@ import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
+import static android.support.test.espresso.contrib.RecyclerViewActions.scrollToPosition;
 import static android.support.test.espresso.intent.Intents.intended;
 import static android.support.test.espresso.intent.matcher.IntentMatchers.hasComponent;
 import static android.support.test.espresso.intent.matcher.IntentMatchers.hasExtra;
@@ -35,6 +36,7 @@ import static android.support.test.espresso.matcher.ViewMatchers.withId;
 import static android.support.test.espresso.matcher.RootMatchers.withDecorView;
 import static android.support.test.espresso.matcher.ViewMatchers.isDisplayed;
 import static android.support.test.espresso.matcher.ViewMatchers.withText;
+import static com.example.zoilaharo.myapp.TestUtils.withRecyclerView;
 import static org.hamcrest.Matchers.allOf;
 import static org.hamcrest.Matchers.not;
 import static org.hamcrest.core.IsNull.notNullValue;
@@ -44,7 +46,7 @@ import static org.junit.Assert.assertThat;
 public class UserAccountTest {
     @Rule
     public ActivityTestRule<UserAccount> activityTestRule
-            = new ActivityTestRule<UserAccount>(UserAccount.class){
+            = new ActivityTestRule<UserAccount>(UserAccount.class) {
         @Override
         protected Intent getActivityIntent() {
             Intent testIntent = new Intent();
@@ -60,7 +62,7 @@ public class UserAccountTest {
     };
 
     @Test
-    public void testform(){
+    public void testform() {
         onView(withId(R.id.profileImg))
                 .check(matches(isDisplayed()));
 
@@ -152,7 +154,7 @@ public class UserAccountTest {
     }
 
     @Test
-    public void swipeThroughTebs(){
+    public void swipeThroughTebs() {
         onView(withId(R.id.profileImg))
                 .check(matches(isDisplayed()));
 
@@ -199,32 +201,32 @@ public class UserAccountTest {
                 .perform(swipeLeft());
 
         //Settings tab
-            onView(withId(R.id.name_edittext_settings))
-                    .perform(typeText("Ruby Roundhouse"), closeSoftKeyboard());
+        onView(withId(R.id.name_edittext_settings))
+                .perform(typeText("Ruby Roundhouse"), closeSoftKeyboard());
 
-            onView(withId(R.id.email_edittext_settings))
-                    .perform(typeText("ruby@myemail.com"), closeSoftKeyboard());
+        onView(withId(R.id.email_edittext_settings))
+                .perform(typeText("ruby@myemail.com"), closeSoftKeyboard());
 
-            onView(withId(R.id.remindertime_edittext_settings))
-                    .perform(typeText("10:00am"), closeSoftKeyboard());
+        onView(withId(R.id.remindertime_edittext_settings))
+                .perform(typeText("10:00am"), closeSoftKeyboard());
 
-            onView(withId(R.id.maxDistance_edittext_settings))
-                    .perform(typeText("10 miles"), closeSoftKeyboard());
+        onView(withId(R.id.maxDistance_edittext_settings))
+                .perform(typeText("10 miles"), closeSoftKeyboard());
 
-            onView(withId(R.id.gender_edittext_settings))
-                    .perform(typeText("Female"), closeSoftKeyboard());
+        onView(withId(R.id.gender_edittext_settings))
+                .perform(typeText("Female"), closeSoftKeyboard());
 
-            onView(withId(R.id.status_edittext_settings))
-                    .perform(typeText("Single"), closeSoftKeyboard());
+        onView(withId(R.id.status_edittext_settings))
+                .perform(typeText("Single"), closeSoftKeyboard());
 
-            onView(withId(R.id.agemin_edittext_settings))
-                    .perform(typeText("30"), closeSoftKeyboard());
+        onView(withId(R.id.agemin_edittext_settings))
+                .perform(typeText("30"), closeSoftKeyboard());
 
-            onView(withId(R.id.agemax_edittext_settings))
-                    .perform(typeText("40"), closeSoftKeyboard());
+        onView(withId(R.id.agemax_edittext_settings))
+                .perform(typeText("40"), closeSoftKeyboard());
 
     }
-
+}
 //    @Test
 //    public void testLikes() {
 //        UserAccount activity = activityTestRule.getActivity();
@@ -233,7 +235,6 @@ public class UserAccountTest {
 //        onView(withId(R.id.viewpager))
 //                .perform(swipeLeft());
 //
-//        //click like button
 //        onView(withId(R.id.my_recycler_view)).perform(
 //                RecyclerViewActions.actionOnItemAtPosition(0, TestUtils.clickChildViewWithId(R.id.like_button)));
 //
@@ -252,10 +253,96 @@ public class UserAccountTest {
 //        onView(withId(R.id.my_recycler_view)).perform(
 //                RecyclerViewActions.actionOnItemAtPosition(5, TestUtils.clickChildViewWithId(R.id.like_button)));
 //    }
+//
+//
+//    @Test
+//    public void testCardImage() {
+//        UserAccount activity = activityTestRule.getActivity();
+//
+//        //swipe to matches tab
+//        onView(withId(R.id.viewpager))
+//                .perform(swipeLeft());
+//
+//        onView(withRecyclerView(R.id.my_recycler_view)
+//                .atPositionOnView(0, R.id.matches_image))
+//                .check(matches(isDisplayed()));
 
+//        onView(withId(R.id.my_recycler_view)).perform(scrollToPosition(1));
+//
+//        onView(withRecyclerView(R.id.my_recycler_view)
+//                .atPositionOnView(1, R.id.matches_image))
+//                .check(matches(isDisplayed()));
+//    }
+//}
+//        onView(withId(R.id.my_recycler_view)).perform(scrollToPosition(2));
+//
+//        onView(withRecyclerView(R.id.my_recycler_view)
+//                .atPositionOnView(2, R.id.matches_title))
+//                .check(matches(isDisplayed()));
+//
+//        onView(withId(R.id.my_recycler_view)).perform(scrollToPosition(3));
+//
+//        onView(withRecyclerView(R.id.my_recycler_view)
+//                .atPositionOnView(3, R.id.matches_title))
+//                .check(matches(isDisplayed()));
+//
+//        onView(withId(R.id.my_recycler_view)).perform(scrollToPosition(4));
+//
+//        onView(withRecyclerView(R.id.my_recycler_view)
+//                .atPositionOnView(4, R.id.matches_title))
+//                .check(matches(isDisplayed()));
+//
+//        onView(withId(R.id.my_recycler_view)).perform(scrollToPosition(5));
+//
+//        onView(withRecyclerView(R.id.my_recycler_view)
+//                .atPositionOnView(5, R.id.matches_title))
+//                .check(matches(isDisplayed()));
+//
+//    }
+//    @Test
+//    public void testNameOnCard() {
+//
+//        //swipe to matches tab
+//        onView(withId(R.id.viewpager))
+//                .perform(swipeLeft());
+//
+//        onView(withRecyclerView(R.id.my_recycler_view)
+//                .atPositionOnView(0, R.id.matches_title))
+//                .check(matches(withText("Cool Guy Mike")));
+//
+//        onView(withId(R.id.my_recycler_view)).perform(scrollToPosition(1));
+//
+//        onView(withRecyclerView(R.id.my_recycler_view)
+//                .atPositionOnView(1, R.id.matches_title))
+//                .check(matches(withText("Mark the King")));
+//
+//        onView(withId(R.id.my_recycler_view)).perform(scrollToPosition(2));
+//
+//        onView(withRecyclerView(R.id.my_recycler_view)
+//                .atPositionOnView(2, R.id.matches_title))
+//                .check(matches(withText("Overachiever Alex")));
+//
+//        onView(withId(R.id.my_recycler_view)).perform(scrollToPosition(3));
+//
+//        onView(withRecyclerView(R.id.my_recycler_view)
+//                .atPositionOnView(3, R.id.matches_title))
+//                .check(matches(withText("Iceman Judah")));
+//
+//        onView(withId(R.id.my_recycler_view)).perform(scrollToPosition(4));
+//
+//        onView(withRecyclerView(R.id.my_recycler_view)
+//                .atPositionOnView(4, R.id.matches_title))
+//                .check(matches(withText("Hayden the Wrestler")));
+//
+//        onView(withId(R.id.my_recycler_view)).perform(scrollToPosition(5));
+//
+//        onView(withRecyclerView(R.id.my_recycler_view)
+//                .atPositionOnView(5, R.id.matches_title))
+//                .check(matches(withText("Money man Ben")));
+//
+//    }
 
-
-}
+//}
 
 //    @Test
 //    public void testBackButton() {

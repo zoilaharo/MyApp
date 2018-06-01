@@ -34,7 +34,7 @@ public class SettingsContentFragment extends Fragment {
     String name, email, reminderTime, maxDistance, gender, privacy, minAge, maxAge;
     public static final int LENGTH_SHORT = 0;
     List<User> users = null;
-    User user = new User();
+    User user;
 
     @Nullable
     @Override
@@ -49,6 +49,8 @@ public class SettingsContentFragment extends Fragment {
         status_View = view.findViewById(R.id.status_edittext_settings);
         minAge_View = view.findViewById(R.id.agemin_edittext_settings);
         maxAge_View = view.findViewById(R.id.agemax_edittext_settings);
+
+        user = new User();
 
 
         if (operation != null) {
@@ -80,7 +82,7 @@ public class SettingsContentFragment extends Fragment {
             user.setStatus(status_View.getText().toString());
             user.setGender(gender_View.getText().toString());
             user.setAgeMin(Integer.parseInt(minAge_View.getText().toString()));
-            user.setAgeMin(Integer.parseInt(maxAge_View.getText().toString()));
+            user.setAgeMax(Integer.parseInt(maxAge_View.getText().toString()));
 
             Context context = getContext();
             int duration = Toast.LENGTH_SHORT;
@@ -128,15 +130,15 @@ public class SettingsContentFragment extends Fragment {
                 return null;
             }
 
-            AppDatabase db = AppDatabaseSingleton.getDatabase(fragment.getActivity().getApplicationContext());
+            AppDatabase db = AppDatabaseSingleton.getDatabase(fragment.getActivity());
             String[] emails = { email };
 
-            users = db.userDao().getAll();
+            users = db.userDao().loadAllByIds(emails);
 
             if(users.size() <= 0 || users.get(0) == null) {
                 return null;
             }
-            return user;
+            return users.get(0);
         }
 
         @Override
@@ -173,7 +175,7 @@ public class SettingsContentFragment extends Fragment {
             }
 
 //            AppDatabase db = AppDatabaseSingleton.getDatabase(fragment.getActivity());
-            AppDatabase db = AppDatabaseSingleton.getDatabase(fragment.getContext());
+            AppDatabase db = AppDatabaseSingleton.getDatabase(fragment.getActivity());
 
             db.userDao().insertAll(user);
             return user;
