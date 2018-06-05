@@ -46,20 +46,20 @@ public class MainActivityTest {
 
     @Test
     public void form() {
-            onView(withId(R.id.name_edittext))
-                    .perform(typeText("Ruby Roundhouse"), closeSoftKeyboard());
+        onView(withId(R.id.name_edittext))
+                .perform(typeText("Ruby Roundhouse"), closeSoftKeyboard());
 
-            onView(withId(R.id.email_edittext))
-                    .perform(typeText("ruby@myemail.com"), closeSoftKeyboard());
+        onView(withId(R.id.email_edittext))
+                .perform(typeText("ruby@myemail.com"), closeSoftKeyboard());
 
-            onView(withId(R.id.username_edittext))
-                    .perform(typeText("avatar"), closeSoftKeyboard());
+        onView(withId(R.id.username_edittext))
+                .perform(typeText("avatar"), closeSoftKeyboard());
 
-            onView(withId(R.id.description_edittext))
-                    .perform(typeText("Commando, martial artist, and dance fighter."), closeSoftKeyboard());
+        onView(withId(R.id.description_edittext))
+                .perform(typeText("Commando, martial artist, and dance fighter."), closeSoftKeyboard());
 
-            onView(withId(R.id.occupation_edittext))
-                    .perform(typeText("Martha's avatar"), closeSoftKeyboard());
+        onView(withId(R.id.occupation_edittext))
+                .perform(typeText("Martha's avatar"), closeSoftKeyboard());
 
         setDate(R.id.datePickerDialogButton, 2010, 1, 1);
 
@@ -201,4 +201,3 @@ public class MainActivityTest {
 
 
 }
-

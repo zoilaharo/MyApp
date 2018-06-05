@@ -53,7 +53,7 @@
                 android:layout_height="wrap_content"
                 android:textColor="#BCBDAB"
                 android:layout_marginTop="@dimen/textview_top5"
-                android:text="@string/settings_name" />
+                android:text="@string/name_profile" />
 
             <EditText
                 android:id="@+id/name_acct_profile"

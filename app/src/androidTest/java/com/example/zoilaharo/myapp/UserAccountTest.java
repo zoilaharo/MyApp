@@ -105,8 +105,8 @@ public class UserAccountTest {
         //TestUtils.rotateScreen(activityTestRule.getActivity());
         TestUtils.rotateScreen(activityTestRule.getActivity());
 
-        onView(withId(R.id.profileImg))
-                .check(matches(isDisplayed()));
+//        onView(withId(R.id.profileImg))
+//                .check(matches(isDisplayed()));
 
         onView(withId(R.id.name_acct_textview))
                 .check(matches(withText("Name:")));
@@ -365,4 +365,3 @@ public class UserAccountTest {
 //        onView(withId(R.id.age_edittext))
 //                .check(matches(withText("")));
 //    }
-

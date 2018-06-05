@@ -36,6 +36,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
     public static final String EXTRA_MESSAGE = "com.example.zoilaharo.myapp.MESSAGE";
     private FragmentManager manager;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,6 +46,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
         //Set listeners of view
         setViewActions();
         this.showDatePickerDialog();
+
     }
 
     private void bindViews(){

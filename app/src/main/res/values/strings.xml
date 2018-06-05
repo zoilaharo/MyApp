@@ -24,13 +24,11 @@
 
     <string name="name_profile">Name:</string>
     <string name="username_profile">User Name:</string>
-    <string name="age_profile">Age:  </string>
+    <string name="age_profile">Age:</string>
     <string name="email_profile">Email:</string>
     <string name="dob_profile">DOB: </string>
     <string name="description_profile">Description:</string>
-    <string name="display_description_profile">Description</string>
-    <string name="occupation_profile">Occupation: </string>
-    <string name="display_occupation_profile">Occupation</string>
+    <string name="occupation_profile">Occupation:</string>
 
 
 
