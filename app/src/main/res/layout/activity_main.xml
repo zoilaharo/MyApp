@@ -8,23 +8,35 @@
         android:id="@+id/relativeLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="#DBDAD6"
         tools:context=".MainActivity"
         android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:id="@+id/profileImg"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:scaleType="centerCrop"
+                android:src="@drawable/h"
+                />
+
+        </LinearLayout>
 
         <TextView
             android:id="@+id/myinfo_edittext"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/textview_top5"
             android:inputType="text"
             android:hint="@string/myinfo_edittext"/>
 
         <TextView
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/textview_top50"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:gravity="center"
-            android:textColor="#FFFFFF"
-            android:background="#3F51B5"
+            android:textColor="#5B0000"
             android:text="@string/header"/>
 
         <EditText
@@ -33,6 +45,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/textview_top20"
             android:inputType="text"
+            android:textColor="#5B0000"
             android:hint="@string/name"
             android:imeOptions="flagNoExtractUi"/>
 
@@ -41,6 +54,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/textview_top20"
+            android:textColor="#5B0000"
             android:inputType="textEmailAddress"
             android:hint="@string/email"
             android:imeOptions="flagNoExtractUi"/>
@@ -50,6 +64,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/textview_top20"
+            android:textColor="#5B0000"
             android:inputType="text"
             android:hint="@string/username"
             android:imeOptions="flagNoExtractUi"/>
@@ -59,6 +74,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/textview_top20"
+            android:textColor="#5B0000"
             android:inputType="text"
             android:hint="@string/description"
             android:imeOptions="flagNoExtractUi"/>
@@ -68,6 +84,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/textview_top20"
+            android:textColor="#5B0000"
             android:inputType="text"
             android:hint="@string/occupation"
             android:imeOptions="flagNoExtractUi"/>
@@ -83,6 +100,7 @@
                 android:layout_height="wrap_content"
                 android:inputType="date"
                 android:layout_marginTop="@dimen/textview_top20"
+                android:textColor="#5B0000"
                 android:hint="@string/dob"
                 android:imeOptions="flagNoExtractUi"
                 android:layout_weight="1"/>
@@ -93,6 +111,7 @@
                 android:layout_height="wrap_content"
                 android:inputType="date"
                 android:layout_marginTop="@dimen/textview_top20"
+                android:textColor="#5B0000"
                 android:hint="@string/age"
                 android:imeOptions="flagNoExtractUi"
                 android:layout_weight="1"/>

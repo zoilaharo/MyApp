@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">Dating Website</string>
-    <string name="myinfo_edittext">Pena, Zoila Haro 5/31/2018</string>
+    <string name="myinfo_edittext">Pena, Zoila Haro 6/7/2018</string>
     <string name="header">Please enter your information.</string>
     <string name="feedbacktitle">Enter your name</string>
     <string name="feedbackemail">Enter your email</string>

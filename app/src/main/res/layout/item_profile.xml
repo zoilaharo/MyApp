@@ -4,12 +4,11 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
+        android:background="#DBDAD6"
         android:padding="20dp">
 
         <LinearLayout
@@ -22,9 +21,12 @@
                 android:id="@+id/profileImg"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:layout_constraintLeft_toLeftOf="@+id/bt_go_back"
-                android:src="@drawable/profileimg"
-                android:layout_weight="1"
+                android:adjustViewBounds="true"
+                android:maxWidth="150dp"
+                android:maxHeight="150dp"
+                android:scaleType="fitCenter"
+                android:layout_marginLeft="3dp"
+                android:src="@drawable/fe"
                 />
 
         </LinearLayout>
@@ -45,13 +47,15 @@
                 android:id="@+id/name_acct_textview"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textColor="#BCBDAB"
                 android:layout_marginTop="@dimen/textview_top5"
-                android:text="@string/name_profile" />
+                android:text="@string/settings_name" />
 
             <EditText
                 android:id="@+id/name_acct_profile"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textColor="#8D0603"
                 android:layout_marginTop="@dimen/textview_top5"
                 android:inputType="text"
                 android:imeOptions="flagNoExtractUi"/>
@@ -62,21 +66,24 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:weightSum="2">
+
             <TextView
                 android:id="@+id/username_acct_textview"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textColor="#BCBDAB"
                 android:layout_marginTop="@dimen/textview_top5"
                 android:text="@string/username_profile" />
 
-
             <EditText
                 android:id="@+id/username_acct_profile"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textColor="#8D0603"
                 android:layout_marginTop="@dimen/textview_top5"
                 android:inputType="text"
                 android:imeOptions="flagNoExtractUi"/>
+
         </LinearLayout>
 
         <LinearLayout
@@ -84,18 +91,20 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:weightSum="2">
+
             <TextView
                 android:id="@+id/email_acct_textview"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textColor="#BCBDAB"
                 android:layout_marginTop="@dimen/textview_top5"
                 android:text="@string/email_profile" />
 
-
             <EditText
                 android:id="@+id/email_acct_profile"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textColor="#8D0603"
                 android:layout_marginTop="@dimen/textview_top5"
                 android:inputType="text"
                 android:imeOptions="flagNoExtractUi"/>
@@ -107,17 +116,20 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:weightSum="2">
+
             <TextView
                 android:id="@+id/age_acct_textview"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textColor="#BCBDAB"
                 android:layout_marginTop="@dimen/textview_top5"
                 android:text="@string/age_profile" />
 
             <EditText
                 android:id="@+id/age_acct_profile"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textColor="#8D0603"
                 android:layout_marginTop="@dimen/textview_top5"
                 android:inputType="text"
                 android:imeOptions="flagNoExtractUi"/>
@@ -129,22 +141,23 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:weightSum="2">
+
             <TextView
                 android:id="@+id/description_acct_textview"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textColor="#BCBDAB"
                 android:layout_marginTop="@dimen/textview_top5"
                 android:text="@string/description_profile" />
 
-
             <EditText
                 android:id="@+id/description_acct_profile"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textColor="#8D0603"
                 android:layout_marginTop="@dimen/textview_top5"
                 android:inputType="text"
                 android:imeOptions="flagNoExtractUi"/>
-
 
         </LinearLayout>
 
@@ -153,18 +166,20 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:weightSum="2">
+
             <TextView
                 android:id="@+id/occupation_acct_textview"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textColor="#BCBDAB"
                 android:layout_marginTop="@dimen/textview_top5"
                 android:text="@string/occupation_profile" />
 
-
             <EditText
                 android:id="@+id/occupation_acct_profile"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textColor="#8D0603"
                 android:layout_marginTop="@dimen/textview_top5"
                 android:inputType="text"
                 android:imeOptions="flagNoExtractUi"/>
