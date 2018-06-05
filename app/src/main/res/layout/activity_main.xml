@@ -2,6 +2,7 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#DBDAD6"
     xmlns:tools="http://schemas.android.com/tools">
 
     <LinearLayout
@@ -33,11 +34,18 @@
             android:hint="@string/myinfo_edittext"/>
 
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:gravity="center"
             android:textColor="#5B0000"
+            android:textSize="20sp"
             android:text="@string/header"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:weightSum="2">
 
         <EditText
             android:id="@+id/name_edittext"
@@ -47,8 +55,21 @@
             android:inputType="text"
             android:textColor="#5B0000"
             android:hint="@string/name"
-            android:imeOptions="flagNoExtractUi"/>
+            android:imeOptions="flagNoExtractUi"
+            android:layout_weight="1"/>
 
+        <EditText
+            android:id="@+id/username_edittext"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/textview_top20"
+            android:textColor="#5B0000"
+            android:inputType="text"
+            android:hint="@string/username"
+            android:imeOptions="flagNoExtractUi"
+            android:layout_weight="1"/>
+
+    </LinearLayout>
         <EditText
             android:id="@+id/email_edittext"
             android:layout_width="match_parent"
@@ -59,15 +80,46 @@
             android:hint="@string/email"
             android:imeOptions="flagNoExtractUi"/>
 
+        <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:context=".TableLayoutExampleActivity"
+            android:shrinkColumns="2"
+            android:stretchColumns="0,1">
+        <TableRow>
+            <EditText
+                android:id="@+id/birthday_edittext"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="date"
+                android:layout_marginTop="@dimen/textview_top20"
+                android:textColor="#5B0000"
+                android:hint="@string/dob"
+                android:imeOptions="flagNoExtractUi"/>
+
+
+               <Button
+                   android:id="@+id/datePickerDialogButton"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:text="@string/pickdate"
+                   />
+            </TableRow>
+
+        </TableLayout>
+
         <EditText
-            android:id="@+id/username_edittext"
+            android:id="@+id/age_edittext"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:inputType="date"
             android:layout_marginTop="@dimen/textview_top20"
             android:textColor="#5B0000"
-            android:inputType="text"
-            android:hint="@string/username"
-            android:imeOptions="flagNoExtractUi"/>
+            android:hint="@string/age"
+            android:imeOptions="flagNoExtractUi"
+            android:layout_weight="1"/>
 
         <EditText
             android:id="@+id/description_edittext"
@@ -88,50 +140,16 @@
             android:inputType="text"
             android:hint="@string/occupation"
             android:imeOptions="flagNoExtractUi"/>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:weightSum="2">
-
-            <EditText
-                android:id="@+id/birthday_edittext"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:inputType="date"
-                android:layout_marginTop="@dimen/textview_top20"
-                android:textColor="#5B0000"
-                android:hint="@string/dob"
-                android:imeOptions="flagNoExtractUi"
-                android:layout_weight="1"/>
-
-            <EditText
-                android:id="@+id/age_edittext"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:inputType="date"
-                android:layout_marginTop="@dimen/textview_top20"
-                android:textColor="#5B0000"
-                android:hint="@string/age"
-                android:imeOptions="flagNoExtractUi"
-                android:layout_weight="1"/>
-        </LinearLayout>
 
 
 
-        <Button
-            android:id="@+id/datePickerDialogButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/pickdate"
-            />
 
         <Button
             android:id="@+id/signup_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="end"
-            android:gravity="center_horizontal|bottom"
+            android:shadowColor="@color/button_grey"
+            android:layout_gravity="center_vertical|center_horizontal"
             android:text="@string/signup" android:onClick="onClick"/>
 
     </LinearLayout>

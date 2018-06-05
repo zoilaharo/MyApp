@@ -2,6 +2,7 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#DBDAD6"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <LinearLayout
@@ -34,7 +35,10 @@
         <TextView
             android:id="@+id/textView"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
+            android:textSize="20sp"
+            android:textColor="#5B0000"
+            android:gravity="center"
             android:hint="@string/myprofile"
             />
         <LinearLayout

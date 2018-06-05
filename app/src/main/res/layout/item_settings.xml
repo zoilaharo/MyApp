@@ -2,6 +2,7 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#DBDAD6"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <LinearLayout
@@ -14,9 +15,12 @@
         <TextView
             android:id="@+id/textView"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/mysettings"
-            />
+            android:layout_height="match_parent"
+            android:textSize="20sp"
+            android:textColor="#5B0000"
+            android:gravity="center"
+            android:hint="@string/mysettings"/>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -119,104 +123,103 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:weightSum="2">
+            android:weightSum="4">
             <TextView
                 android:id="@+id/gender_textview_settings"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="#BCBDAB"
                 android:layout_marginTop="@dimen/textview_top5"
-                android:text="@string/setting_gender" />
+                android:text="@string/setting_gender"
+                android:layout_weight="0"/>
 
             <EditText
                 android:id="@+id/gender_edittext_settings"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="#8D0603"
                 android:layout_marginTop="@dimen/textview_top5"
                 android:inputType="text"
-                android:imeOptions="flagNoExtractUi"/>
+                android:imeOptions="flagNoExtractUi"
+                android:layout_weight="1"/>
 
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:weightSum="2">
             <TextView
                 android:id="@+id/status_textview_settings"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="#BCBDAB"
                 android:layout_marginTop="@dimen/textview_top5"
-                android:text="@string/setting_status" />
+                android:text="@string/setting_status"
+                android:layout_weight="0"/>
 
             <EditText
                 android:id="@+id/status_edittext_settings"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="#8D0603"
                 android:layout_marginTop="@dimen/textview_top5"
                 android:inputType="text"
-                android:imeOptions="flagNoExtractUi"/>
+                android:imeOptions="flagNoExtractUi"
+                android:layout_weight="1"/>
 
         </LinearLayout>
+
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:weightSum="2">
+            android:weightSum="4">
             <TextView
                 android:id="@+id/agemin_textview_settings"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="#BCBDAB"
                 android:layout_marginTop="@dimen/textview_top5"
-                android:text="@string/setting_agemin" />
+                android:text="@string/setting_agemin"
+                android:imeOptions="flagNoExtractUi"
+                android:layout_weight="0"/>
 
             <EditText
                 android:id="@+id/agemin_edittext_settings"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="#8D0603"
                 android:layout_marginTop="@dimen/textview_top5"
                 android:inputType="text"
-                android:imeOptions="flagNoExtractUi"/>
+                android:imeOptions="flagNoExtractUi"
+                android:layout_weight="1"/>
 
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:weightSum="2">
             <TextView
                 android:id="@+id/agemax_textview_settings"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="#BCBDAB"
                 android:layout_marginTop="@dimen/textview_top5"
-                android:text="@string/setting_agemax" />
+                android:text="@string/setting_agemax"
+                android:imeOptions="flagNoExtractUi"
+                android:layout_weight="0"/>
 
             <EditText
                 android:id="@+id/agemax_edittext_settings"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="#8D0603"
                 android:layout_marginTop="@dimen/textview_top5"
                 android:inputType="text"
-                android:imeOptions="flagNoExtractUi"/>
+                android:imeOptions="flagNoExtractUi"
+                android:layout_weight="1"/>
 
         </LinearLayout>
+
 
         <Button
             android:id="@+id/update"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/textview_top5"
-            android:text="@string/update"/>
+            android:text="@string/update"
+            android:layout_gravity="center_vertical|center_horizontal"/>
 
         <FrameLayout
             android:id="@+id/settings_fragment"
